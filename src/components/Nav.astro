@@ -1,0 +1,106 @@
+---
+// asset imports
+import { Image } from 'astro:assets';
+import Icon from 'astro-icon'
+import Logo from '../../public/images/logo.svg'
+import { socialLinks } from '../data/social-links'
+import { headerLinks } from '../data/nav-links'
+
+// component imports
+import SocialLink from './SocialLink.astro'
+import Link from './Link.astro'
+---
+
+<nav class="absolute w-full top-0 left-0 bg-primary">
+    <!-- nav container -->
+    <div class="flex items-center justify-between container py-5 px-3 md:py-10 md:px-5 max-w-[1300px] flex-wrap">
+        <!-- logo wrapper -->
+        <div class="flex items-center justify-between md:gap-7 w-full md:w-max">
+            <!-- logo -->
+            <a href="/" class="hover:opacity-75 transition duration-200">
+            <Image src={Logo} alt='Pages Logo' width='120' height='35'  />
+            </a>
+            <!-- social media links -->
+            <div class="hidden md:flex items-center justify-between gap-3">
+                {socialLinks.map(link => (
+                    <SocialLink iconName={link.name} link={link.link} label={link.label} />
+                ))}
+            </div>
+
+            <button class="text-primary w-10 h-10 bg-white block md:hidden border-2 outline-none border-none z-50" id="nav-toggle">
+                <Icon name='uil:bars' class="w-full" />
+            </button>
+        </div>
+        
+        <!-- links wrapper -->
+        <div class="nav-menu absolute md:static bg-primary w-full md:w-max top-0 left-0 min-h-screen md:min-h-max flex items-center justify-center z-10 text-white gap-8 flex-col md:flex-row data-[expanded=true]:-translate-y-0 data-[expanded=false]:-translate-y-full md:data-[expanded=true]:-translate-y-0 md:data-[expanded=false]:-translate-y-0 transition duration-200" data-expanded="false">
+            <!-- primary navigation links -->
+            <ul class="flex gap-5 flex-col md:flex-row items-center justify-center md:items-start md:justify-start " >
+                { headerLinks.map((link) => (
+                    <li class="text-white hover:text-secondary transition duration-200 relative nav-link group">
+                        <a href={link.href} class="flex items-center gap-1">
+                            {link.text} 
+                            {link.subPages?.length && <Icon name="ph:caret-down-bold" class="w-3" />}
+                        </a>
+                        {link.subPages?.length && 
+                            // sub pages
+                            <ul class="data-[submenu=false]:hidden data-[submenu=true]:block absolute top-7 bg-primary text-white px-4 py-3 left-0 border border-secondary flex flex-col items-start gap-3 w-max submenu z-20" data-submenu="false">
+                                <span class="w-5 h-2 bg-secondary absolute top-0 left-0"></span>
+                                <span class="w-5 h-2 bg-secondary absolute bottom-0 right-0"></span>
+
+                                {link.subPages?.map((page) => (
+                                    <li class="text-sm hover:opacity-75 hover:text-secondary transition duration-200 py-2">
+                                        <a href={page.href}>{page.text}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        }
+                    </li>
+                )) }
+            </ul>
+
+            <!-- cart -->
+            <button class="hidden md:flex relative">
+                <span class="text-primary font-extrabold z-10 text-center bg-secondary rounded-full absolute -top-3 -right-1 text-[0.625rem] w-5 h-5 flex items-center justify-center">01</span>
+                <Icon name="mdi:cart-outline" class="w-6 h-6" />
+            </button>
+
+            <!-- call to action button -->
+            <Link link='/' type='primary' size='xs' classes='hidden md:flex'>Order Today</Link>
+        </div>
+    </div>
+</nav>
+
+
+<script is:inline>
+    const nav = document.querySelector('.nav-menu');
+    const navToggle = document.querySelector('#nav-toggle')
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navToggle.addEventListener('click', () => {
+        if(nav.getAttribute('data-expanded') === 'false') {
+            nav.setAttribute('data-expanded', true)
+        } else {
+            nav.setAttribute('data-expanded', false)
+        }
+
+        console.log('clicked')
+    })
+
+    // check link if it has submenu
+    navLinks.forEach(link => {
+        if(link.hasChildNodes) {
+            // if it has submenu / child node, add event listener of click to it
+            link.addEventListener('click', function(e) {
+                const subMenu = document.querySelector('.submenu')
+                // check if "data-submenu" attr is = false
+                // if false, set it to 'true', else set to 'false'               
+                if(subMenu.getAttribute('data-submenu') === 'false') {
+                    subMenu.setAttribute('data-submenu', 'true')
+                } else {
+                    subMenu.setAttribute('data-submenu', 'false')
+                }
+            })
+        }
+    })
+</script>

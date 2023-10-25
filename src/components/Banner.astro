@@ -1,0 +1,19 @@
+---
+import Heading from './Heading.astro';
+import Hr from './Hr.astro';
+interface Props {
+    title?: string;
+    desc?: string
+}
+
+const {title, desc = 'Pages | BookStore', } = Astro.props
+
+---
+
+<section class="bg-primary">
+    <div class="flex container min-h-[32.9375rem] w-full max-w-[39.5625rem] text-center items-center justify-center flex-col">
+        <Heading variant='h1' class:list={"text-white"}>{title}</Heading>
+        <Hr />
+        <p>{desc}</p>
+    </div>
+</section>

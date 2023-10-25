@@ -1,0 +1,20 @@
+---
+interface Props {
+    variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+}
+
+ const { variant = 'h2', ...rest} = Astro.props
+
+ const Tag = variant
+---
+<Tag class:list={[`font-cardo font-bold`,
+{'text-4xl md:text-[4.0625rem] leading-snug md:leading-[4.46875rem] tracking-[-0.05156rem]': variant === 'h1'},
+{'text-3xl md:text-[3.4375rem] leading-snug md:leading-[4.46875rem] tracking-[-0.05156rem]': variant === 'h2'},
+{'text-2xl md:text-[2.8125rem] leading-snug md:leading-[2.8125rem] tracking-[-0.04219rem]': variant === 'h3'},
+{'text-xl md:text-[2rem] leading-snug md:leading-[2.6rem] tracking-[-0.03rem]': variant === 'h4'},
+{'text-lg md:text-[1.5rem] leading-snug md:leading-[1.95rem] tracking-[-0.0225rem]': variant === 'h5'},
+{'text-md md:text-[1.375rem] leading-snug md:leading-[1.7875rem] tracking-[-0.02063rem]': variant === 'h6'},
+
+]} {...rest} ><slot/></Tag>
+
+

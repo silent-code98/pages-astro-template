@@ -1,0 +1,28 @@
+---
+interface Props {
+    link: string;
+    type: "primary" | "outline";
+    size?: 'xs' | "sm" | "lg";
+    classes?: string;
+}
+
+ const {link = '/', type = 'primary', size = 'sm', classes = '', ...rest} = Astro.props
+---
+
+<a href={link} class:list={
+[`h-max transition duration-200 text-[1.1875rem] leading-none text-primary border border-secondary font-bold capitalize font-cardo ${classes}`,
+// -> style by properties
+// primary
+{'bg-secondary hover:bg-primary hover:text-secondary hover:border-secondary': type === 'primary'},
+// outline 
+{'bg-transparent hover:bg-secondary': type === 'outline'},
+// size lg
+{'px-[4em] md:px-[6em] pt-[1.25em] pb-[1.31em]': size === 'lg'},
+// size sm
+{'px-[2em] md:px-[3.5em] pt-[1.25em] pb-[1.31em]': size === 'sm'},
+// size xs
+{'py-[0.81rem] px-[2.06rem]': size === 'xs'}]
+}
+{...rest} >
+<slot />
+</a>
