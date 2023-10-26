@@ -1,28 +1,26 @@
 ---
-interface Props {
-    link: string;
-    type: "primary" | "outline";
-    size?: 'xs' | "sm" | "lg";
+// types
+import type { HTMLAttributes } from 'astro/types'
+// packages
+import { twMerge } from 'tailwind-merge'
+
+// props and types
+interface Props extends HTMLAttributes<'a'> {
+    tagType?: "a";
+    link?: string;
+    btnType: "primary" | "secondary" | "outline";
+    size?: "sm" | "md" | "lg";
     classes?: string;
 }
 
- const {link = '/', type = 'primary', size = 'sm', classes = '', ...rest} = Astro.props
+const {link = '#', btnType = 'primary', size, classes = '', tagType = "a", ...attrs} = Astro.props
+
+// tag type
+const Tag = tagType
+
+// component styles
+const styles = twMerge('text-[1.1875rem] w-max pt-[1.25em] pb-[1.31em] font-cardo capitalize font-bold transition duration-200', btnType === "primary" && 'bg-secondary text-primary hover:bg-primary border border-secondary hover:border-primary hover:text-secondary' || btnType === 'outline' && 'bg-transparent border border-secondary text-primary hover:bg-secondary',  btnType === "secondary" && 'py-[0.19rem] px-[0.06rem] bg-transparent border-b border-b-2', size === "sm" && 'py-[0.8125rem] px-[2.0625rem]' || size === 'md' && 'pt-[1.25em] pb-[1.31rem] px-[3.5rem]' || size === 'lg' && 'pt-[1.25em] pb-[1.31rem] px-[5rem] md:px-[6rem]', classes)
 ---
 
-<a href={link} class:list={
-[`h-max transition duration-200 text-[1.1875rem] leading-none text-primary border border-secondary font-bold capitalize font-cardo ${classes}`,
-// -> style by properties
-// primary
-{'bg-secondary hover:bg-primary hover:text-secondary hover:border-secondary': type === 'primary'},
-// outline 
-{'bg-transparent hover:bg-secondary': type === 'outline'},
-// size lg
-{'px-[4em] md:px-[6em] pt-[1.25em] pb-[1.31em]': size === 'lg'},
-// size sm
-{'px-[2em] md:px-[3.5em] pt-[1.25em] pb-[1.31em]': size === 'sm'},
-// size xs
-{'py-[0.81rem] px-[2.06rem]': size === 'xs'}]
-}
-{...rest} >
-<slot />
-</a>
+<!-- link -->
+ <Tag href={link} {...attrs} class:list={styles}><slot /></Tag> 

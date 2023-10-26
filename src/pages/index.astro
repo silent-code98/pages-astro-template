@@ -1,5 +1,7 @@
 ---
 import Banner from "../components/Banner.astro";
+import Hr from "../components/Hr.astro";
+import Link from "../components/Link.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
@@ -7,11 +9,29 @@ import MainLayout from "../layouts/MainLayout.astro";
     <header>
         <div class="flex container gap-[5.94rem]">
             <!-- left col -->
-            <div class="flex flex-1">1</div>
+            <div class="flex flex-1">
+                <!-- /hero subtitle -->
+                <div class="flex">
+                    <Hr />
+                    <h2>Welcome to Pages</h2>
+                </div>
+
+                <!-- /hero title -->
+                <h1>Books are uniquely portable magic</h1>
+
+                <!-- /hero description -->
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+
+                <!-- /hero cta container -->
+                <div class="flex">
+                    <Link tagType="a" link="/" btnType="primary">Order Today</Link>
+                    <a href="/">Read Free Demo</a>
+                </div>
+            </div>
+
             <!-- right col -->
             <div class="flex flex-1">2</div>
         </div>
     </header>
 
-    <Banner title="test" />
 </MainLayout>

@@ -13,11 +13,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 		<!-- // Links/Buttons -->
 		<h1 class="mt-10 text-5xl md:text-7xl font-semibold capitalize text-primary font-cardo mb-10">Style Guide</h1>
 
-		<div class="flex gap-3 items-center justify-between w-max flex-col md:flex-row">
-			<Link link='/' type='primary'>Test Button </Link>
-			<Link link='/' type='primary' size="lg">Test Button </Link>
-			<Link link='/' type='outline'>Test Button </Link>
-			<Link link='/' type='outline' size="lg">Test Button </Link>
+		<div class="flex flex-col gap-3 w-max">
+			<Link link='/' btnType='primary' size="sm">Button Primary Small</Link>
+			<Link link='/' btnType='primary' size="md">Button Primary Medium</Link>
+			<Link link='/' btnType='primary' size="lg">Button Primary Large</Link>
+			<Link link='/' btnType='outline' size="sm">Button Outline</Link>
+			<Link link='/' btnType='outline' size="md">Button Outline Medium</Link>
+			<Link link='/' btnType='outline' size="lg">Button Outline Large</Link>
+			<Link link='/' btnType='secondary' classes="text-black border-b-black">Button Secondary</Link>
 		</div> <!-- \ Links/Buttons -->
 
 		<!-- // Typography -->
