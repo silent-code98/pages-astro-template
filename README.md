@@ -1,3 +1,33 @@
 # Pages | Bookstore Astro Template
 
-This is a template built with `Astro` as one of my continious play-projects.
+An **Astro** tempalate for Bookshop e-commerce stores. 🚀
+
+---
+
+## **Version: 1.0.6**
+
+- Responsive design
+- Easily customizable
+- Latest `Astro` version
+- Code split into reusable Astro components
+
+---
+
+### **Included in this repo**
+
+| Items  | Included |
+| ------ | -------- |
+| Assets | [ - ]    |
+| Images | [ x ]    |
+
+### Clone theis repo
+
+`$ git clone https://github.com/slient-code/pages-astro-template.git`
+
+---
+
+**Credits:**
+
+- **Design:** victorflow
+- **Images:** unsplash and pexels
+- **Development:**
