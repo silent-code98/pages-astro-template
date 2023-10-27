@@ -4,7 +4,7 @@ import './../global.scss'
 import Nav from '../components/Nav.astro'
 
 interface Props {
-	title?: string;
+	title: string;
 	desc?: string;
 }
 
@@ -25,3 +25,17 @@ const {title = 'Pages | BookStore', desc} = Astro.props
 	</body>
 </html>
 	
+
+<script>
+	import Lenis from '@studio-freight/lenis'
+
+	const lenis = new Lenis()
+
+
+	function raf(time) {
+	lenis.raf(time)
+	requestAnimationFrame(raf)
+	}
+
+	requestAnimationFrame(raf);
+</script>

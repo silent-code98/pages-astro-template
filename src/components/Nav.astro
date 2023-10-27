@@ -1,106 +1,127 @@
 ---
-// asset imports
-import { Image } from 'astro:assets';
-import Icon from 'astro-icon'
-import Logo from '../../public/images/logo.svg'
-import { socialLinks } from '../data/social-links'
-import { headerLinks } from '../data/nav-links'
+// components
+import { Image } from "astro:assets";
+import SocialLink from "./SocialLink.astro";
+import Icon from "astro-icon";
+import Link from "../components/Link.astro";
 
-// component imports
-import SocialLink from './SocialLink.astro'
-import Link from './Link.astro'
+// data
+import { socialLinks } from "../data/social-links";
+import { primaryLinks } from "../data/nav-links";
 ---
 
-<nav class="absolute w-full top-0 left-0 bg-primary">
-    <!-- nav container -->
-    <div class="flex items-center justify-between container py-5 px-3 md:py-10 md:px-5 max-w-[1300px] flex-wrap">
-        <!-- logo wrapper -->
-        <div class="flex items-center justify-between md:gap-7 w-full md:w-max">
-            <!-- logo -->
-            <a href="/" class="hover:opacity-75 transition duration-200">
-            <Image src={Logo} alt='Pages Logo' width='120' height='35'  />
-            </a>
-            <!-- social media links -->
-            <div class="hidden md:flex items-center justify-between gap-3">
-                {socialLinks.map(link => (
-                    <SocialLink iconName={link.name} link={link.link} label={link.label} />
-                ))}
-            </div>
+<nav class="w-full bg-primary sticky top-0">
+  <!-- nav container -->
+  <div
+    class="container max-w-[1300px] flex items-center justify-between py-4 md:py-5 px-3 md:px-5 relative"
+  >
+    <!-- logo / left col wrapper -->
+    <div class="flex items-center justify-between gap-4 flex-1">
+      <!-- logo svg -->
+      <a href="/" title="Pages Logo">
+        <Image
+          src="/images/logo.svg"
+          alt="Pages"
+          width={120}
+          height={36}
+          class="min-w-[120px]"
+        />
+      </a>
 
-            <button class="text-primary w-10 h-10 bg-white block md:hidden border-2 outline-none border-none z-50" id="nav-toggle">
-                <Icon name='uil:bars' class="w-full" />
-            </button>
-        </div>
-        
-        <!-- links wrapper -->
-        <div class="nav-menu absolute md:static bg-primary w-full md:w-max top-0 left-0 min-h-screen md:min-h-max flex items-center justify-center z-10 text-white gap-8 flex-col md:flex-row data-[expanded=true]:-translate-y-0 data-[expanded=false]:-translate-y-full md:data-[expanded=true]:-translate-y-0 md:data-[expanded=false]:-translate-y-0 transition duration-200" data-expanded="false">
-            <!-- primary navigation links -->
-            <ul class="flex gap-5 flex-col md:flex-row items-center justify-center md:items-start md:justify-start " >
-                { headerLinks.map((link) => (
-                    <li class="text-white hover:text-secondary transition duration-200 relative nav-link group">
-                        <a href={link.href} class="flex items-center gap-1">
-                            {link.text} 
-                            {link.subPages?.length && <Icon name="ph:caret-down-bold" class="w-3" />}
-                        </a>
-                        {link.subPages?.length && 
-                            // sub pages
-                            <ul class="data-[submenu=false]:hidden data-[submenu=true]:block absolute top-7 bg-primary text-white px-4 py-3 left-0 border border-secondary flex flex-col items-start gap-3 w-max submenu z-20" data-submenu="false">
-                                <span class="w-5 h-2 bg-secondary absolute top-0 left-0"></span>
-                                <span class="w-5 h-2 bg-secondary absolute bottom-0 right-0"></span>
-
-                                {link.subPages?.map((page) => (
-                                    <li class="text-sm hover:opacity-75 hover:text-secondary transition duration-200 py-2">
-                                        <a href={page.href}>{page.text}</a>
-                                    </li>
-                                ))}
-                            </ul>
-                        }
-                    </li>
-                )) }
-            </ul>
-
-            <!-- cart -->
-            <button class="hidden md:flex relative">
-                <span class="text-primary font-extrabold z-10 text-center bg-secondary rounded-full absolute -top-3 -right-1 text-[0.625rem] w-5 h-5 flex items-center justify-center">01</span>
-                <Icon name="mdi:cart-outline" class="w-6 h-6" />
-            </button>
-
-            <!-- call to action button -->
-            <Link link='/' btnType='primary' size='sm' classes='hidden md:flex'>Order Today</Link>
-        </div>
+      <!-- social links -->
+      <div class="md:flex gap-3 items-center hidden">
+        {
+          socialLinks.map((l) => (
+            <SocialLink iconName={l.name} link={l.link} label={l.label} />
+          ))
+        }
+      </div>
     </div>
+
+    <!-- right column wrapper -->
+    <div
+      class="flex items-center justify-end gap-4 flex-col md:flex-row flex-[3]"
+    >
+      <!-- navigation links -->
+      <ul
+        data-open="false"
+        class="NAV_MENU flex text-white gap-0 md:gap-3 absolute md:static bg-primary flex-col md:flex-row top-0 right-0 border w-full md:w-auto md:border-0 shadow-lg md:shadow-none data-[open='true']:translate-y-[72px] data-[open='false']:-translate-y-full md:data-[open='false']:-translate-y-0 transition duration-300 z-10"
+      >
+        {
+          primaryLinks.map((l) => (
+            <li class="relative group flex gap-1 border-b md:border-0 px-5 py-3 md:p-0">
+              <a
+                class="hover:text-secondary transition duration-200"
+                href={l.href}
+              >
+                {l.text}
+              </a>
+              {l.subPages?.length && (
+                <Icon name="mdi:chevron-down" class="w-5" />
+              )}
+              {l.subPages?.length && (
+                <ul class="z-50 flex flex-col w-max py-5 px-7 rounded-md bg-white text-primary font-medium gap-2 absolute top-[1.8rem] invisible -translate-y-3 left-0 group-hover:visible transition duration-200 group-hover:translate-y-0 shadow-lg">
+                  <div class="w-3 h-3 bg-white transform rotate-45 absolute top-5 md:-top-1 lef-6 md:left-0 translate-x-0 transition duration-500 group-hover:left-[20px] group-hover:-translate-x-1/4" />
+                  {l.subPages.map((page) => (
+                    <li>
+                      <a
+                        href={page.href}
+                        class="hover:text-secondary transition duration-200"
+                      >
+                        {page.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+      <!-- cart -->
+      <button
+        type="button"
+        class="flex items-center justify-center relative text-white self-end md:self-center mr-4 md:mr-0"
+        aria-label="Toggle mobile navigation menu"
+        title="Nav open button"
+      >
+        <span
+          class="text-primary font-bold absolute -top-2 -right-1 text-[0.625rem] bg-secondary rounded-full p-1"
+          >02</span
+        >
+        <Icon name="mdi:cart-outline" class="w-8 h-8" />
+      </button>
+
+      <!-- call to action -->
+      <Link
+        link="/"
+        btnType="primary"
+        size="sm"
+        classes="hover:border-secondary hidden md:inline-block"
+      >
+        Order Today
+      </Link>
+    </div>
+
+    <!-- hamburger menu icon -->
+    <button
+      type="button"
+      class="NAV_TOGGLE_BTN flex md:hidden border border-secondary rounded-sm p-1"
+    >
+      <Icon name="line-md:menu" class="w-8 text-white" />
+    </button>
+  </div>
 </nav>
 
+<script>
+  const navToggle = document.querySelector(".NAV_TOGGLE_BTN");
+  const navMenu = document.querySelector(".NAV_MENU");
 
-<script is:inline>
-    const nav = document.querySelector('.nav-menu');
-    const navToggle = document.querySelector('#nav-toggle')
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    navToggle.addEventListener('click', () => {
-        if(nav.getAttribute('data-expanded') === 'false') {
-            nav.setAttribute('data-expanded', true)
-        } else {
-            nav.setAttribute('data-expanded', false)
-        }
-
-        console.log('clicked')
-    })
-
-    // check link if it has submenu
-    navLinks.forEach(link => {
-        if(link.hasChildNodes) {
-            // if it has submenu / child node, add event listener of click to it
-            link.addEventListener('click', function(e) {
-                const subMenu = document.querySelector('.submenu')
-                // check if "data-submenu" attr is = false
-                // if false, set it to 'true', else set to 'false'               
-                if(subMenu.getAttribute('data-submenu') === 'false') {
-                    subMenu.setAttribute('data-submenu', 'true')
-                } else {
-                    subMenu.setAttribute('data-submenu', 'false')
-                }
-            })
-        }
-    })
+  navToggle.addEventListener("click", () => {
+    if (navMenu.getAttribute("data-open") === "false") {
+      navMenu.setAttribute("data-open", "true");
+    } else {
+      navMenu.setAttribute("data-open", "false");
+    }
+  });
 </script>

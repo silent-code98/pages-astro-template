@@ -1,19 +1,25 @@
 ---
-// asset imports
-import Icon from 'astro-icon'
+// components
+import Icon from "astro-icon";
 
+// types and props
 interface Props {
-    iconName: string;
-    link: string;
-    label: string;
+  iconName: string;
+  link: string;
+  label: string;
 }
 
-const {iconName, link, label } = Astro.props
+const { iconName, link, label } = Astro.props;
 ---
 
-<a  href={link} 
-    target="_blank" 
-    aria-label={label} 
-    class:list={['text-center text-primary bg-white w-[45px] h-[45px] flex items-center justify-center hover:bg-transparent border border-white hover:text-white transition duration-200']}>
-    <Icon name={iconName} class="h-[1.1875rem]"/>
+<!-- social link component -->
+<a
+  href={link}
+  target="_blank"
+  aria-label={label}
+  class:list={[
+    "text-center text-primary bg-white md:w-[45px] md:h-[45px] flex items-center justify-center hover:bg-secondary border border-white hover:text-primary hover:border-secondary transition duration-200",
+  ]}
+>
+  <Icon name={iconName} class="h-[1.1875rem]" />
 </a>
