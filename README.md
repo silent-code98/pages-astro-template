@@ -30,4 +30,4 @@ An **Astro** tempalate for Bookshop e-commerce stores. 🚀
 
 - **Design:** victorflow
 - **Images:** unsplash and pexels
-- **Development:**
+- **Development:** [Mohammad Adnan](https://facebook.com/mohammad.adnan.amin)
