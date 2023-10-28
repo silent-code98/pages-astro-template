@@ -20,7 +20,7 @@ An **Astro** tempalate for authors or bookshop / e-commerce stores. 🚀
 | Assets | [ - ]    |
 | Images | [ - ]    |
 
-### Clone theis repo
+### Clone this repo
 
 `$ git clone https://github.com/slient-code/pages-astro-template.git`
 
