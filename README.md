@@ -1,6 +1,6 @@
 # Pages | Bookstore Astro Template
 
-An **Astro** tempalate for Bookshop e-commerce stores. 🚀
+An **Astro** tempalate for authors or bookshop / e-commerce stores. 🚀
 
 ---
 

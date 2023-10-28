@@ -110,7 +110,7 @@ import { featuredBooks } from "../data/books";
     </div>
   </header>
 
-  <!-- author's books include -->
+  <!-- featured books -->
   <section class="text-primary">
     <div
       class="flex flex-col container items-center max-w-7xl justify-center py-10 md:py-[9.06rem] px-3 md:px-5"
@@ -135,6 +135,90 @@ import { featuredBooks } from "../data/books";
               />
             ))
           }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- about author -->
+  <section class="bg-[#F4F8FF]">
+    <div
+      class="flex flex-col md:flex-row px-3 md:px-5 container max-w-7xl items-center justify-center py-10 md:py-[9.38rem] gap-5 md:gap-[8.88rem]"
+    >
+      <!-- author image -->
+      <div class="flex flex-1 w-full max-w-[550px] shadow-lg relative z-20">
+        <div
+          class="absolute top-3 md:top-8 left-2 md:left-6 mb-6 text-center md:text-left border-[12px] bg-transparent w-full h-full z-0 shadow-lg border-secondary"
+        >
+        </div>
+        <Image
+          src="/images/about-author.jpg"
+          alt="Author"
+          width={550}
+          height={650}
+          class="w-full z-20"
+        />
+      </div>
+
+      <!-- author info -->
+      <div class="flex flex-col flex-1 justify-center">
+        <Heading variant="h4">About Author</Heading>
+        <Hr />
+        <p class="mb-4 md:mb-[1.37rem]">
+          All the Lorem Ipsum generators on the Internet tend to repeated
+          predefined chunks as necessary, making this the first true value
+          generator on the Internet. It uses a dictionary of over 200 Latin
+          words, combined with a handful.
+        </p>
+
+        <!-- author publication stats -->
+        <div
+          class="flex flex-wrap w-full justify-between md:divide-x-2 divide-secondary mb-6 md:mb-2.56rem"
+        >
+          <!-- 01 -->
+          <div class="flex flex-col">
+            <Heading variant="h2">02</Heading>
+            <p>Books Published</p>
+          </div>
+          <!-- 02 -->
+          <div class="flex flex-col pl-[2rem]">
+            <Heading variant="h2">4.5</Heading>
+            <p>User Reviews</p>
+          </div>
+          <!-- 03 -->
+          <div class="flex flex-col pl-[2rem]">
+            <Heading variant="h2">04</Heading>
+            <p>Best Seller Awards</p>
+          </div>
+        </div>
+
+        <!-- author contact info -->
+        <div
+          class="flex py-[0.94rem] items-center bg-primary text-white px-[1.12rem] gap-5 md:gap-[2.31rem]"
+        >
+          <Image
+            src="/images/qr-code.jpg"
+            alt="Author contact info qr code"
+            width={130}
+            height={130}
+            class="hidden md:block max-w-[130px] w-full"
+          />
+
+          <div class="flex flex-col items-start">
+            <Heading variant="h6" class="text-secondary mb-3">
+              John Abraham , Ph.d
+            </Heading>
+            <p class="text-light-blue font-normal text-[1.1875rem]">
+              Mail : <a href="mailto:johnabraham@gmail.com" target="_blank"
+                >johnabraham@gmail.com</a
+              >
+            </p>
+            <p class="text-light-blue font-normal text-[1.1875rem]">
+              Phone : <a href="tel:+21235459000" target="_blank"
+                >(+2) 123 545 9000</a
+              >
+            </p>
+          </div>
         </div>
       </div>
     </div>
