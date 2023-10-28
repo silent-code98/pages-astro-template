@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap");
 
-*,
-*::before,
-*::after,
-body {
-  font-family: "Inter", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cardo", "ui-erif", "Georgia";
 }
 
 p,
@@ -13,4 +15,5 @@ span {
   font-size: 1.1875rem;
   font-weight: 400;
   letter-spacing: -0.01188rem;
+  font-family: "Inter", sans-serif;
 }

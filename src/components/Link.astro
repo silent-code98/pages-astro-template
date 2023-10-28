@@ -1,26 +1,48 @@
 ---
 // types
-import type { HTMLAttributes } from 'astro/types'
+import type { HTMLAttributes } from "astro/types";
 // packages
-import { twMerge } from 'tailwind-merge'
+import { twMerge } from "tailwind-merge";
 
 // props and types
-interface Props extends HTMLAttributes<'a'> {
-    tagType?: "a";
-    link?: string;
-    btnType: "primary" | "secondary" | "outline";
-    size?: "sm" | "md" | "lg";
-    classes?: string;
+interface Props extends HTMLAttributes<"a"> {
+  tagType?: "a";
+  link: string;
+  btnType: "primary" | "secondary" | "outline";
+  size?: "sm" | "md" | "lg" | "normal";
+  classes?: string;
 }
 
-const {link = '#', btnType = 'primary', size, classes = '', tagType = "a", ...attrs} = Astro.props
+const {
+  link = "#",
+  btnType = "primary",
+  size = "md",
+  classes = "",
+  tagType = "a",
+  ...attrs
+} = Astro.props;
 
 // tag type
-const Tag = tagType
+const Tag = tagType;
 
 // component styles
-const styles = twMerge('text-[1.1875rem] w-max h-max pt-[1.25em] pb-[1.31em] font-cardo capitalize font-bold transition duration-200', btnType === "primary" && 'bg-secondary text-primary hover:bg-primary border border-secondary hover:border-primary hover:text-secondary' || btnType === 'outline' && 'bg-transparent border border-secondary text-primary hover:bg-secondary',  btnType === "secondary" && 'py-[0.19rem] px-[0.06rem] bg-transparent border-b border-b-2', size === "sm" && 'py-[0.8125rem] px-[2.0625rem]' || size === 'md' && 'pt-[1.25em] pb-[1.31rem] px-[3.5rem]' || size === 'lg' && 'pt-[1.25em] pb-[1.31rem] px-[5rem] md:px-[6rem]', classes)
+const styles = twMerge(
+  "text-[1.1875rem] py-[0.85rem] w-max h-max font-cardo capitalize font-bold transition duration-200 text-inherit",
+  (btnType === "primary" &&
+    "bg-secondary text-primary hover:bg-primary border-2 border-secondary hover:border-primary hover:text-secondary") ||
+    (btnType === "outline" &&
+      "bg-transparent border-2 border-secondary text-primary hover:bg-secondary"),
+  btnType === "secondary" &&
+    "p-0 bg-transparent border-2-b border-b-2 hover:border-b-secondary hover:text-secondary w-max h-max",
+  (size === "sm" && "py-[0.8125rem] px-[2.0625rem]") ||
+    (size === "md" &&
+      "px-[2.4rem] md:pt-[1.25em] md:pb-[1.31rem] md:px-[3.5rem]") ||
+    (size === "lg" &&
+      "px-[3.8rem] md:pt-[1.25em] md:pb-[1.31rem] md:px-[6rem]"),
+  size === "normal" && "p-0",
+  classes,
+);
 ---
 
 <!-- link -->
- <Tag href={link} {...attrs} class:list={styles}><slot /></Tag> 
+<Tag href={link} {...attrs} class:list={styles}><slot /></Tag>

@@ -14,8 +14,10 @@ const { title, desc = "Pages | BookStore" } = Astro.props;
   <div
     class="flex container min-h-[18.75rem] md:min-h-[32.9375rem] w-full max-w-[39.5625rem] text-center items-center justify-center flex-col"
   >
-    <Heading variant="h1" class:list={"text-white"}>{title}</Heading>
+    <!-- banner title -->
+    <Heading variant="h1" classes="text-white">{title}</Heading>
     <Hr />
-    <p>{desc}</p>
+    <!-- banner description -->
+    <p class="text-light-blue">{desc}</p>
   </div>
 </section>

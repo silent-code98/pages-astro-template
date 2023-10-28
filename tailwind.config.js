@@ -5,17 +5,17 @@ export default {
     extend: {
       colors: {
         primary: "#1B3764",
-        secondary: "#FFCA42"
-
+        secondary: "#FFCA42",
+        "light-blue": "#B4C7E7",
       },
       container: {
         center: true,
-      }
+      },
     },
     fontFamily: {
-      inter: ['Inter', 'ui-sans-serif', 'system-ui'],
-      cardo: ['Cardo','ui-serif', 'Georgia']
-    }
+      inter: ["Inter", "ui-sans-serif", "system-ui"],
+      cardo: ["Cardo", "ui-serif", "Georgia"],
+    },
   },
   plugins: [],
 };

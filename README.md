@@ -18,7 +18,7 @@ An **Astro** tempalate for Bookshop e-commerce stores. 🚀
 | Items  | Included |
 | ------ | -------- |
 | Assets | [ - ]    |
-| Images | [ x ]    |
+| Images | [ - ]    |
 
 ### Clone theis repo
 

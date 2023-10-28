@@ -11,17 +11,20 @@ const title = "Style Guide";
   title={title}
   desc="There are many variations of passages of Lorem Ipsum available, have suffered alteration in some form."
 >
+  <!-- Banner -->
   <Banner title={title} />
 
   <div
     class="container px-3 md:px-5 py-10 md:py-16 w-full min-h-screen flex flex-wrap items-center justify-center md:items-start md:justify-center flex-col"
   >
     <!-- // Links/Buttons -->
-    <h1
-      class="text-5xl md:text-7xl font-semibold capitalize text-primary font-cardo mb-10"
+
+    <Heading
+      variant="h1"
+      classes="text-5xl md:text-7xl font-semibold capitalize text-primary font-cardo mb-10"
     >
       Style Guide
-    </h1>
+    </Heading>
 
     <div class="flex flex-col gap-3 w-max">
       <Link link="/" btnType="primary" size="sm">Button Primary Small</Link>

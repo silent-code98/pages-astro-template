@@ -1,37 +1,142 @@
 ---
-import Banner from "../components/Banner.astro";
+import { Image } from "astro:assets";
+import Heading from "../components/Heading.astro";
 import Hr from "../components/Hr.astro";
 import Link from "../components/Link.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import Icon from "astro-icon";
+import FeaturedBook from "../components/FeaturedBook.astro";
+import { featuredBooks } from "../data/books";
 ---
 
 <MainLayout title="Home | Pages - BookStore">
-    <header>
-        <div class="flex container gap-[5.94rem]">
-            <!-- left col -->
-            <div class="flex flex-1">
-                <!-- /hero subtitle -->
-                <div class="flex">
-                    <Hr />
-                    <h2>Welcome to Pages</h2>
-                </div>
-
-                <!-- /hero title -->
-                <h1>Books are uniquely portable magic</h1>
-
-                <!-- /hero description -->
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-
-                <!-- /hero cta container -->
-                <div class="flex">
-                    <Link tagType="a" link="/" btnType="primary">Order Today</Link>
-                    <a href="/">Read Free Demo</a>
-                </div>
-            </div>
-
-            <!-- right col -->
-            <div class="flex flex-1">2</div>
+  <!-- header -->
+  <header class="bg-primary text-white">
+    <div
+      class="flex flex-col md:flex-row items-center container gap-8 md:gap-[5.94rem] py-10 md:py-[3rem] px-3 md:px-5 overflow-hidden max-w-6xl"
+    >
+      <!-- left col -->
+      <div class="flex flex-[3] flex-col text-center md:text-left">
+        <!-- /hero subtitle -->
+        <div
+          class="flex flex-col-reverse md:flex-row items-center gap-0 md:gap-3 justify-center md:justify-start"
+        >
+          <Hr />
+          <h2 class="font-cardo font-normal italic text-[1.5rem]">
+            Welcome to Pages
+          </h2>
         </div>
-    </header>
 
+        <!-- /hero title -->
+        <Heading variant="h1" classes="mb-[2rem]">
+          Books are uniquely portable magic
+        </Heading>
+
+        <!-- /hero description -->
+        <p class="text-light-blue mb-[3rem] md:leading-loose">
+          There are many variations of passages of Lorem Ipsum available, but
+          the majority have suffered alteration in some form.
+        </p>
+
+        <!-- /hero cta container -->
+        <div class="flex flex-col md:flex-row items-center gap-5">
+          <Link
+            tagType="a"
+            link="/"
+            size="md"
+            btnType="primary"
+            class="hover:border-secondary"
+          >
+            Order Today
+          </Link>
+          <Link
+            link="/"
+            btnType="secondary"
+            size="normal"
+            classes="text-inherit"
+          >
+            Read free demo
+          </Link>
+        </div>
+
+        <!-- book info -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-between mt-8 md:mt-[2.6rem]"
+        >
+          <!-- 01. pages -->
+          <div
+            class="flex flex-col md:flex-row items-center md:items-start gap-3 mt-3 justify-start md:justify-center"
+          >
+            <Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
+            <div class="flex flex-col gap-1">
+              <Heading variant="h5">Pages</Heading>
+              <span class="text-light-blue font-light">586 pages</span>
+            </div>
+          </div>
+          <!-- 02. length -->
+          <div
+            class="flex flex-col md:flex-row items-center md:items-start gap-3 mt-3 justify-start md:justify-center"
+          >
+            <Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
+            <div class="flex flex-col gap-1">
+              <Heading variant="h5">Length:</Heading>
+              <span class="text-light-blue font-light">10 Hours</span>
+            </div>
+          </div>
+          <!-- 01. ratings -->
+          <div
+            class="flex flex-col md:flex-row items-center md:items-start gap-3 mt-3 justify-start md:justify-center"
+          >
+            <Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
+            <div class="flex flex-col gap-1">
+              <Heading variant="h5">Ratings:</Heading>
+              <span class="text-light-blue font-light">4.5/5 (305 ratings)</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right col -->
+      <div class="flex flex-[2] items-center justify-center">
+        <Image
+          src="/images/hero-book.jpg"
+          alt="Book the dark light"
+          width={420}
+          height={670}
+          class="w-full max-w-[420px]"
+        />
+      </div>
+    </div>
+  </header>
+
+  <!-- author's books include -->
+  <section class="text-primary">
+    <div
+      class="flex flex-col container items-center max-w-7xl justify-center py-10 md:py-[9.06rem] px-3 md:px-5"
+    >
+      <!-- section title -->
+      <Heading variant="h3">Author’s Book Includes</Heading>
+
+      <!-- featured books -->
+      <div class="flex mt-10 gap-7 md:gap-[4.12rem]">
+        <!-- 01. book  -->
+        <div
+          class="flex flex-wrap lg:flex-nowrap justify-center flex-1 gap-7 md:gap-10 lg:gap-[2.5rem] items-center text-center lg:text-left"
+        >
+          {
+            featuredBooks.map((book) => (
+              <FeaturedBook
+                name={book.name}
+                desc={book.desc}
+                pages={book.pages}
+                image={book.image}
+                length={book.length}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 </MainLayout>
