@@ -19,6 +19,7 @@ An **Astro** tempalate for authors or bookshop / e-commerce stores. 🚀
 | ------ | -------- |
 | Assets | [ - ]    |
 | Images | [ - ]    |
+| Types  | [ - ]    |
 
 ### Clone this repo
 

@@ -1,226 +1,202 @@
 ---
-import { Image } from "astro:assets";
-import Heading from "../components/Heading.astro";
-import Hr from "../components/Hr.astro";
-import Link from "../components/Link.astro";
-import MainLayout from "../layouts/MainLayout.astro";
-import Icon from "astro-icon";
-import FeaturedBook from "../components/FeaturedBook.astro";
-import { featuredBooks } from "../data/books";
+import { Image } from 'astro:assets'
+import Heading from '../components/Heading.astro'
+import Hr from '../components/Hr.astro'
+import Link from '../components/Link.astro'
+import MainLayout from '../layouts/MainLayout.astro'
+import Icon from 'astro-icon'
+import FeaturedBook from '../components/FeaturedBook.astro'
+import { featuredBooks } from '../data/books'
 ---
 
 <MainLayout title="Home | Pages - BookStore">
-  <!-- header -->
-  <header class="bg-primary text-white">
-    <div
-      class="flex flex-col md:flex-row items-center container gap-8 md:gap-[5.94rem] py-10 md:py-[3rem] px-3 md:px-5 overflow-hidden max-w-6xl"
-    >
-      <!-- left col -->
-      <div class="flex flex-[3] flex-col text-center md:text-left">
-        <!-- /hero subtitle -->
-        <div
-          class="flex flex-col-reverse md:flex-row items-center gap-0 md:gap-3 justify-center md:justify-start"
-        >
-          <Hr />
-          <h2 class="font-cardo font-normal italic text-[1.5rem]">
-            Welcome to Pages
-          </h2>
-        </div>
+	<!-- header -->
+	<header class="bg-primary text-white">
+		<div
+			class="container flex max-w-6xl flex-col items-center gap-8 overflow-hidden px-3 py-10 md:flex-row md:gap-[5.94rem] md:px-5 md:py-[3rem]"
+		>
+			<!-- left col -->
+			<div class="flex flex-[3] flex-col text-center md:text-left">
+				<!-- /hero subtitle -->
+				<div
+					class="flex flex-col-reverse items-center justify-center gap-0 md:flex-row md:justify-start md:gap-3"
+				>
+					<Hr />
+					<h2 class="font-cardo text-[1.5rem] font-normal italic">Welcome to Pages</h2>
+				</div>
 
-        <!-- /hero title -->
-        <Heading variant="h1" classes="mb-[2rem]">
-          Books are uniquely portable magic
-        </Heading>
+				<!-- /hero title -->
+				<Heading variant="h1" classes="mb-[2rem]">Books are uniquely portable magic</Heading>
 
-        <!-- /hero description -->
-        <p class="text-light-blue mb-[3rem] md:leading-loose">
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form.
-        </p>
+				<!-- /hero description -->
+				<p class="mb-[3rem] text-light-blue md:leading-loose">
+					There are many variations of passages of Lorem Ipsum available, but the majority have
+					suffered alteration in some form.
+				</p>
 
-        <!-- /hero cta container -->
-        <div class="flex flex-col md:flex-row items-center gap-5">
-          <Link
-            tagType="a"
-            link="/"
-            size="md"
-            btnType="primary"
-            class="hover:border-secondary"
-          >
-            Order Today
-          </Link>
-          <Link
-            link="/"
-            btnType="secondary"
-            size="normal"
-            classes="text-inherit"
-          >
-            Read free demo
-          </Link>
-        </div>
+				<!-- /hero cta container -->
+				<div class="flex flex-col items-center gap-5 md:flex-row">
+					<Link tagType="a" link="/" size="md" btnType="primary" class="hover:border-secondary">
+						Order Today
+					</Link>
+					<Link link="/" btnType="secondary" size="normal" classes="text-inherit">
+						Read free demo
+					</Link>
+				</div>
 
-        <!-- book info -->
-        <div
-          class="flex flex-col md:flex-row items-center gap-0 md:gap-[5rem] mt-5 md:mt-[2.6rem]"
-        >
-          <!-- 01. pages -->
-          <div
-            class="flex flex-col md:flex-row items-center md:items-start gap-3 mt-3 justify-start md:justify-center"
-          >
-            <Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
-            <div class="flex flex-col gap-1">
-              <Heading variant="h5">Pages</Heading>
-              <span class="text-light-blue font-light">586 pages</span>
-            </div>
-          </div>
-          <!-- 02. length -->
-          <div
-            class="flex flex-col md:flex-row items-center md:items-start gap-3 mt-3 justify-start md:justify-center"
-          >
-            <Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
-            <div class="flex flex-col gap-1">
-              <Heading variant="h5">Length:</Heading>
-              <span class="text-light-blue font-light">10 Hours</span>
-            </div>
-          </div>
-          <!-- 01. ratings -->
-          <div
-            class="flex flex-col md:flex-row items-center md:items-start gap-3 mt-3 justify-start md:justify-center"
-          >
-            <Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
-            <div class="flex flex-col gap-1">
-              <Heading variant="h5">Ratings:</Heading>
-              <span class="text-light-blue font-light">4.5/5 (305 ratings)</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
+				<!-- book info -->
+				<div class="mt-5 flex flex-col items-center gap-0 md:mt-[2.6rem] md:flex-row md:gap-[5rem]">
+					<!-- 01. pages -->
+					<div
+						class="mt-3 flex flex-col items-center justify-start gap-3 md:flex-row md:items-start md:justify-center"
+					>
+						<Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
+						<div class="flex flex-col gap-1">
+							<Heading variant="h5">Pages</Heading>
+							<span class="font-light text-light-blue">586 pages</span>
+						</div>
+					</div>
+					<!-- 02. length -->
+					<div
+						class="mt-3 flex flex-col items-center justify-start gap-3 md:flex-row md:items-start md:justify-center"
+					>
+						<Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
+						<div class="flex flex-col gap-1">
+							<Heading variant="h5">Length:</Heading>
+							<span class="font-light text-light-blue">10 Hours</span>
+						</div>
+					</div>
+					<!-- 01. ratings -->
+					<div
+						class="mt-3 flex flex-col items-center justify-start gap-3 md:flex-row md:items-start md:justify-center"
+					>
+						<Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
+						<div class="flex flex-col gap-1">
+							<Heading variant="h5">Ratings:</Heading>
+							<span class="font-light text-light-blue">4.5/5 (305 ratings)</span>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <!-- right col -->
-      <div class="flex flex-[2] items-center justify-center">
-        <Image
-          src="/images/hero-book.jpg"
-          alt="Book the dark light"
-          width={420}
-          height={670}
-          class="w-full max-w-[420px]"
-        />
-      </div>
-    </div>
-  </header>
+			<!-- right col -->
+			<div class="flex flex-[2] items-center justify-center">
+				<Image
+					src="/images/hero-book.jpg"
+					alt="Book the dark light"
+					width={420}
+					height={670}
+					class="w-full max-w-[420px]"
+				/>
+			</div>
+		</div>
+	</header>
 
-  <!-- featured books -->
-  <section class="text-primary">
-    <div
-      class="flex flex-col container items-center max-w-7xl justify-center py-10 md:py-[9.06rem] px-3 md:px-5"
-    >
-      <!-- section title -->
-      <Heading variant="h3">Author’s Book Includes</Heading>
+	<!-- featured books -->
+	<section class="text-primary">
+		<div
+			class="container flex max-w-7xl flex-col items-center justify-center px-3 py-10 md:px-5 md:py-[9.06rem]"
+		>
+			<!-- section title -->
+			<Heading variant="h3">Author’s Book Includes</Heading>
 
-      <!-- featured books -->
-      <div class="flex mt-10 gap-7 md:gap-[4.12rem]">
-        <!-- 01. book  -->
-        <div
-          class="flex flex-wrap lg:flex-nowrap justify-center flex-1 gap-7 md:gap-10 lg:gap-[2.5rem] items-center text-center lg:text-left"
-        >
-          {
-            featuredBooks.map((book) => (
-              <FeaturedBook
-                name={book.name}
-                desc={book.desc}
-                pages={book.pages}
-                image={book.image}
-                length={book.length}
-              />
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
+			<!-- featured books -->
+			<div class="mt-10 flex gap-7 md:gap-[4.12rem]">
+				<!-- 01. book  -->
+				<div
+					class="flex flex-1 flex-wrap items-center justify-center gap-7 text-center md:gap-10 lg:flex-nowrap lg:gap-[2.5rem] lg:text-left"
+				>
+					{
+						featuredBooks.map((book) => (
+							<FeaturedBook
+								name={book.name}
+								desc={book.desc}
+								pages={book.pages}
+								image={book.image}
+								length={book.length}
+							/>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
 
-  <!-- about author -->
-  <section class="bg-[#F4F8FF]">
-    <div
-      class="flex flex-col md:flex-row px-3 md:px-5 container max-w-7xl items-center justify-center py-10 md:py-[9.38rem] gap-5 md:gap-[8.88rem]"
-    >
-      <!-- author image -->
-      <div class="flex flex-1 w-full max-w-[550px] shadow-lg relative z-20">
-        <div
-          class="absolute top-3 md:top-8 left-2 md:left-6 mb-6 text-center md:text-left border-[12px] bg-transparent w-full h-full z-0 shadow-lg border-secondary"
-        >
-        </div>
-        <Image
-          src="/images/about-author.jpg"
-          alt="Author"
-          width={550}
-          height={650}
-          class="w-full z-20"
-        />
-      </div>
+	<!-- about author -->
+	<section class="bg-[#F4F8FF]">
+		<div
+			class="container flex max-w-7xl flex-col items-center justify-center gap-5 px-3 py-10 md:flex-row md:gap-[8.88rem] md:px-5 md:py-[9.38rem]"
+		>
+			<!-- author image -->
+			<div class="relative z-20 flex w-full max-w-[550px] flex-1 shadow-lg">
+				<div
+					class="absolute left-2 top-3 z-0 mb-6 h-full w-full border-[12px] border-secondary bg-transparent text-center shadow-lg md:left-6 md:top-8 md:text-left"
+				>
+				</div>
+				<Image
+					src="/images/about-author.jpg"
+					alt="Author"
+					width={550}
+					height={650}
+					class="z-20 w-full"
+				/>
+			</div>
 
-      <!-- author info -->
-      <div class="flex flex-col flex-1 justify-center">
-        <Heading variant="h4">About Author</Heading>
-        <Hr />
-        <p class="mb-4 md:mb-[1.37rem]">
-          All the Lorem Ipsum generators on the Internet tend to repeated
-          predefined chunks as necessary, making this the first true value
-          generator on the Internet. It uses a dictionary of over 200 Latin
-          words, combined with a handful.
-        </p>
+			<!-- author info -->
+			<div class="flex flex-1 flex-col justify-center">
+				<Heading variant="h4">About Author</Heading>
+				<Hr />
+				<p class="mb-4 md:mb-[1.37rem]">
+					All the Lorem Ipsum generators on the Internet tend to repeated predefined chunks as
+					necessary, making this the first true value generator on the Internet. It uses a
+					dictionary of over 200 Latin words, combined with a handful.
+				</p>
 
-        <!-- author publication stats -->
-        <div
-          class="flex flex-wrap w-full justify-between md:divide-x-2 divide-secondary mb-6 md:mb-2.56rem"
-        >
-          <!-- 01 -->
-          <div class="flex flex-col">
-            <Heading variant="h2">02</Heading>
-            <p>Books Published</p>
-          </div>
-          <!-- 02 -->
-          <div class="flex flex-col pl-[2rem]">
-            <Heading variant="h2">4.5</Heading>
-            <p>User Reviews</p>
-          </div>
-          <!-- 03 -->
-          <div class="flex flex-col pl-[2rem]">
-            <Heading variant="h2">04</Heading>
-            <p>Best Seller Awards</p>
-          </div>
-        </div>
+				<!-- author publication stats -->
+				<div
+					class="md:mb-2.56rem mb-6 flex w-full flex-wrap justify-between divide-secondary md:divide-x-2"
+				>
+					<!-- 01 -->
+					<div class="flex flex-col">
+						<Heading variant="h2">02</Heading>
+						<p>Books Published</p>
+					</div>
+					<!-- 02 -->
+					<div class="flex flex-col pl-[2rem]">
+						<Heading variant="h2">4.5</Heading>
+						<p>User Reviews</p>
+					</div>
+					<!-- 03 -->
+					<div class="flex flex-col pl-[2rem]">
+						<Heading variant="h2">04</Heading>
+						<p>Best Seller Awards</p>
+					</div>
+				</div>
 
-        <!-- author contact info -->
-        <div
-          class="flex py-[0.94rem] items-center bg-primary text-white px-[1.12rem] gap-5 md:gap-[2.31rem]"
-        >
-          <Image
-            src="/images/qr-code.jpg"
-            alt="Author contact info qr code"
-            width={130}
-            height={130}
-            class="hidden md:block max-w-[130px] w-full"
-          />
+				<!-- author contact info -->
+				<div
+					class="flex items-center gap-5 bg-primary px-[1.12rem] py-[0.94rem] text-white md:gap-[2.31rem]"
+				>
+					<Image
+						src="/images/qr-code.jpg"
+						alt="Author contact info qr code"
+						width={130}
+						height={130}
+						class="hidden w-full max-w-[130px] md:block"
+					/>
 
-          <div class="flex flex-col items-start">
-            <Heading variant="h6" class="text-secondary mb-3">
-              John Abraham , Ph.d
-            </Heading>
-            <p class="text-light-blue font-normal text-[1.1875rem]">
-              Mail : <a href="mailto:johnabraham@gmail.com" target="_blank"
-                >johnabraham@gmail.com</a
-              >
-            </p>
-            <p class="text-light-blue font-normal text-[1.1875rem]">
-              Phone : <a href="tel:+21235459000" target="_blank"
-                >(+2) 123 545 9000</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+					<div class="flex flex-col items-start">
+						<Heading variant="h6" class="mb-3 text-secondary">John Abraham , Ph.d</Heading>
+						<p class="text-[1.1875rem] font-normal text-light-blue">
+							Mail : <a href="mailto:johnabraham@gmail.com" target="_blank">johnabraham@gmail.com</a
+							>
+						</p>
+						<p class="text-[1.1875rem] font-normal text-light-blue">
+							Phone : <a href="tel:+21235459000" target="_blank">(+2) 123 545 9000</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </MainLayout>

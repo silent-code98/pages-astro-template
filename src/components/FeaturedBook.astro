@@ -1,59 +1,59 @@
 ---
 // components
-import { Image } from "astro:assets";
-import Icon from "astro-icon";
-import Heading from "./Heading.astro";
-import Link from "./Link.astro";
+import { Image } from 'astro:assets'
+import Icon from 'astro-icon'
+import Heading from './Heading.astro'
+import Link from './Link.astro'
 
 // props and types
 interface Props {
-  name: string;
-  desc: string;
-  pages: string;
-  length: string;
-  rating?: string;
-  image: string;
+	name: string
+	desc: string
+	pages: string
+	length: string
+	rating?: string
+	image: string
 }
 
-const { name, desc, pages, length, rating = "0", image } = Astro.props;
+const { name, desc, pages, length, rating = '0', image } = Astro.props
 ---
 
 <!-- book image / cover -->
 <Image
-  src={image}
-  alt={name}
-  width={292.8}
-  height={396.8}
-  class="w-full max-w-[292.8px] object-cover shadow-lg"
+	src={image}
+	alt={name}
+	width={292.8}
+	height={396.8}
+	class="w-full max-w-[292.8px] object-cover shadow-lg"
 />
 
 <!-- book info -->
 <div
-  class="flex flex-col gap-3 md:gap-[1.8rem] justify-center items-center lg:items-start max-w-xl"
+	class="flex max-w-xl flex-col items-center justify-center gap-3 md:gap-[1.8rem] lg:items-start"
 >
-  <Heading variant="h5">{name}</Heading>
-  <p>
-    {desc}
-  </p>
+	<Heading variant="h5">{name}</Heading>
+	<p>
+		{desc}
+	</p>
 
-  <!-- book features -->
-  <div class="flex gap-3 items-center justify-center">
-    <div class="flex gap-2 items-start">
-      <Icon name="ic:baseline-circle" class="text-secondary w-5 mt-1" />
-      <div class="flex flex-col">
-        <Heading variant="h6" classes="text-[1.5rem]">Pages:</Heading>
-        <p>{pages}</p>
-      </div>
-    </div>
-    <div class="flex gap-2 items-start">
-      <Icon name="ic:baseline-circle" class="text-secondary w-5 mt-1" />
-      <div class="flex flex-col">
-        <Heading variant="h6" classes="text-[1.5rem]">Length:</Heading>
-        <p>{length}</p>
-      </div>
-    </div>
-  </div>
+	<!-- book features -->
+	<div class="flex items-center justify-center gap-3">
+		<div class="flex items-start gap-2">
+			<Icon name="ic:baseline-circle" class="mt-1 w-5 text-secondary" />
+			<div class="flex flex-col">
+				<Heading variant="h6" classes="text-[1.5rem]">Pages:</Heading>
+				<p>{pages}</p>
+			</div>
+		</div>
+		<div class="flex items-start gap-2">
+			<Icon name="ic:baseline-circle" class="mt-1 w-5 text-secondary" />
+			<div class="flex flex-col">
+				<Heading variant="h6" classes="text-[1.5rem]">Length:</Heading>
+				<p>{length}</p>
+			</div>
+		</div>
+	</div>
 
-  <!-- order today button -->
-  <Link link="/" btnType="outline" size="sm">Order Today</Link>
+	<!-- order today button -->
+	<Link link="/" btnType="outline" size="sm">Order Today</Link>
 </div>
