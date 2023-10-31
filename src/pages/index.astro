@@ -513,4 +513,147 @@ import { featuredBooks } from '../data/books'
 			</p>
 		</div>
 	</section>
+
+	<!-- testimonials / review -->
+	<section id="testimonials" class="text-primary">
+		<div
+			class="container flex flex-col items-center gap-10 px-3 py-10 md:px-5 lg:flex-row lg:gap-[1rem] lg:py-[9rem] xl:gap-[6rem]"
+		>
+			<!-- left col -->
+			<div class="flex flex-[2] flex-col items-center text-center lg:items-start lg:text-left">
+				<Heading variant="h3" classes="md:leading-tight">What Readers Say About the Book</Heading>
+				<Hr />
+				<p class="leading-relaxed">
+					If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+					embarrassing hidden in the middle of text. All the Lorem Ipsum generators.
+				</p>
+				<div class="mt-5 flex items-center gap-4 md:mt-10">
+					<Image
+						src="/images/rating-circles-filled.svg"
+						alt="Rating 4.8/5"
+						width={120}
+						height={20}
+						class="w-full max-w-[120px]"
+					/>
+					<p class="font-cardo text-lg font-bold text-primary">(4.8/5)</p>
+				</div>
+
+				<div class="flex"></div>
+			</div>
+
+			<!-- right col -->
+			<div class="flex flex-[3] items-center justify-center gap-5 md:gap-8 lg:justify-end">
+				<div class="flex flex-col gap-5">
+					<!-- testimonial card 01 -->
+					<article
+						class="flex max-w-[23.125rem] flex-1 flex-col gap-6 bg-primary px-[2.25rem] py-[1.9375rem]"
+					>
+						<!-- card header -->
+						<div class="flex gap-4 md:gap-5">
+							<!-- avatar -->
+							<Image
+								src="/images/martin-philips.jpg"
+								alt="Martin Philips"
+								width={85}
+								height={85}
+								class="rounded-full"
+							/>
+
+							<!-- name and rating stars-->
+							<div class="flex flex-col items-start justify-center gap-1">
+								<Heading variant="h5" class="text-white">Martin Philips</Heading>
+
+								<Image
+									src="/images/rating-circles-filled.svg"
+									alt="rating"
+									width={76}
+									height={12.656}
+								/>
+							</div>
+						</div>
+
+						<!-- review -->
+						<Heading variant="h5" classes="text-white">“ Awesome Impact ”</Heading>
+						<p class="text-[#B4C7E7]">
+							All the Lorem Ipsum generators on the Internet tend to repeat willings predefined
+							chunks value.
+						</p>
+					</article>
+
+					<!-- testimonial card 02 -->
+					<article
+						class="flex max-w-[23.125rem] flex-1 flex-col gap-6 bg-primary px-[2.25rem] py-[1.9375rem]"
+					>
+						<!-- card header -->
+						<div class="flex gap-4 md:gap-5">
+							<!-- avatar -->
+							<Image
+								src="/images/james-anderson.jpg"
+								alt="James Anderson"
+								width={85}
+								height={85}
+								class="rounded-full"
+							/>
+
+							<!-- name and rating stars-->
+							<div class="flex flex-col items-start justify-center gap-1">
+								<Heading variant="h5" class="text-white">James Anderson</Heading>
+
+								<Image
+									src="/images/rating-circles-filled.svg"
+									alt="rating"
+									width={76}
+									height={12.656}
+								/>
+							</div>
+						</div>
+
+						<!-- review -->
+						<Heading variant="h5" classes="text-white">“ Mind Blowing Words ”</Heading>
+						<p class="text-[#B4C7E7]">
+							All the Lorem Ipsum generators on the Internet tend to repeat willings predefined
+							chunks value.
+						</p>
+					</article>
+				</div>
+				<div class="flex flex-col">
+					<!-- testimonial card 03 -->
+					<article
+						class="flex max-w-[23.125rem] flex-1 flex-col gap-6 bg-primary px-[2.25rem] py-[1.9375rem]"
+					>
+						<!-- card header -->
+						<div class="flex gap-4 md:gap-5">
+							<!-- avatar -->
+							<Image
+								src="/images/christina-louis.jpg"
+								alt="Christina Louis"
+								width={85}
+								height={85}
+								class="rounded-full"
+							/>
+
+							<!-- name and rating stars-->
+							<div class="flex flex-col items-start justify-center gap-1">
+								<Heading variant="h5" class="text-white">Christina Louis</Heading>
+
+								<Image
+									src="/images/rating-circles-filled.svg"
+									alt="rating"
+									width={76}
+									height={12.656}
+								/>
+							</div>
+						</div>
+
+						<!-- review -->
+						<Heading variant="h5" classes="text-white">“ Great Books Collections ”</Heading>
+						<p class="text-[#B4C7E7]">
+							All the Lorem Ipsum generators on the Internet tend to repeat willings predefined
+							chunks value.
+						</p>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
 </MainLayout>
