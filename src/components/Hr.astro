@@ -1,18 +1,18 @@
 ---
 // packages
-import { twMerge } from "tailwind-merge";
+import { twMerge } from 'tailwind-merge'
 
 // props and types
-const { classes, ...props } = Astro.props;
+const { classes, ...props } = Astro.props
 interface Props {
-  classes?: string;
+	classes?: string
 }
 
 // component styles
 const styles = twMerge(
-  "w-full max-w-[3.4375rem] h-[0.1875rem] bg-[#FFCA42] border-none outline-none my-3 md:mt-[2.12rem] md:mb-[1.75rem]",
-  classes,
-);
+	'w-full max-w-[3.4375rem] h-[0.1875rem] bg-[#FFCA42] border-none outline-none my-3 lg:mt-[2.12rem] lg:mb-[1.75rem]',
+	classes
+)
 ---
 
 <hr class:list={styles} />

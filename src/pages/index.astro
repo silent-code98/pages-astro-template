@@ -13,13 +13,13 @@ import { featuredBooks } from '../data/books'
 	<!-- header -->
 	<header class="bg-primary text-white">
 		<div
-			class="container flex max-w-6xl flex-col items-center gap-8 overflow-hidden px-3 py-10 md:flex-row md:gap-[5.94rem] md:px-5 md:py-[3rem]"
+			class="container flex flex-col items-center gap-8 overflow-hidden px-3 py-10 md:px-5 md:py-[3rem] lg:flex-row lg:gap-[5.94rem]"
 		>
 			<!-- left col -->
-			<div class="flex flex-[3] flex-col text-center md:text-left">
+			<div class="flex flex-[3] flex-col items-center text-center lg:items-start lg:text-left">
 				<!-- /hero subtitle -->
 				<div
-					class="flex flex-col-reverse items-center justify-center gap-0 md:flex-row md:justify-start md:gap-3"
+					class="flex w-full flex-col-reverse items-center justify-center gap-0 md:gap-3 lg:flex-row lg:justify-start"
 				>
 					<Hr />
 					<h2 class="font-cardo text-[1.5rem] font-normal italic">Welcome to Pages</h2>
@@ -45,20 +45,20 @@ import { featuredBooks } from '../data/books'
 				</div>
 
 				<!-- book info -->
-				<div class="mt-5 flex flex-col items-center gap-0 md:mt-[2.6rem] md:flex-row md:gap-[5rem]">
+				<div class="mt-5 flex flex-col items-center gap-0 sm:mt-[2.6rem] sm:flex-row sm:gap-[5rem]">
 					<!-- 01. pages -->
 					<div
-						class="mt-3 flex flex-col items-center justify-start gap-3 md:flex-row md:items-start md:justify-center"
+						class="mt-3 flex flex-col items-center justify-start gap-3 sm:flex-row sm:items-start sm:justify-center"
 					>
 						<Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
-						<div class="flex flex-col gap-1">
+						<div class="flex flex-col items-center gap-1 sm:items-start">
 							<Heading variant="h5">Pages</Heading>
 							<span class="font-light text-light-blue">586 pages</span>
 						</div>
 					</div>
 					<!-- 02. length -->
 					<div
-						class="mt-3 flex flex-col items-center justify-start gap-3 md:flex-row md:items-start md:justify-center"
+						class="mt-3 flex flex-col items-center justify-start gap-3 sm:flex-row sm:items-start sm:justify-center"
 					>
 						<Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
 						<div class="flex flex-col gap-1">
@@ -66,12 +66,12 @@ import { featuredBooks } from '../data/books'
 							<span class="font-light text-light-blue">10 Hours</span>
 						</div>
 					</div>
-					<!-- 01. ratings -->
+					<!-- 03. ratings -->
 					<div
-						class="mt-3 flex flex-col items-center justify-start gap-3 md:flex-row md:items-start md:justify-center"
+						class="mt-3 flex flex-col items-center justify-start gap-3 sm:flex-row sm:items-start sm:justify-center"
 					>
 						<Icon name="ic:baseline-circle" class="mt-1.5 w-4 text-secondary" />
-						<div class="flex flex-col gap-1">
+						<div class="flex flex-col items-center gap-1 sm:items-start">
 							<Heading variant="h5">Ratings:</Heading>
 							<span class="font-light text-light-blue">4.5/5 (305 ratings)</span>
 						</div>
@@ -86,117 +86,431 @@ import { featuredBooks } from '../data/books'
 					alt="Book the dark light"
 					width={420}
 					height={670}
-					class="w-full max-w-[420px]"
+					class="w-full max-w-[420] lg:min-w-[420px]"
 				/>
 			</div>
 		</div>
 	</header>
 
 	<!-- featured books -->
-	<section class="text-primary">
-		<div
-			class="container flex max-w-7xl flex-col items-center justify-center px-3 py-10 md:px-5 md:py-[9.06rem]"
-		>
+	<section id="featured-books" class="overflow-hidden text-primary">
+		<div class="container flex w-full flex-col items-center px-3 py-10 md:px-5 lg:py-[9rem]">
 			<!-- section title -->
-			<Heading variant="h3">Author’s Book Includes</Heading>
+			<Heading variant="h2" classes="text-center">Author’s Book Includes</Heading>
+			<Hr classes="max-w-[3.4375rem] mt-[1.38rem] mb-[2rem] md:mb-[3.56rem]" />
 
-			<!-- featured books -->
-			<div class="mt-10 flex gap-7 md:gap-[4.12rem]">
-				<!-- 01. book  -->
-				<div
-					class="flex flex-1 flex-wrap items-center justify-center gap-7 text-center md:gap-10 lg:flex-nowrap lg:gap-[2.5rem] lg:text-left"
-				>
-					{
-						featuredBooks.map((book) => (
-							<FeaturedBook
-								name={book.name}
-								desc={book.desc}
-								pages={book.pages}
-								image={book.image}
-								length={book.length}
-							/>
-						))
-					}
-				</div>
+			<!-- books container -->
+			<div class="flex w-full flex-col gap-10 lg:flex-row lg:gap-3">
+				{
+					featuredBooks.map((book) => (
+						<FeaturedBook
+							name={book.name}
+							desc={book.desc}
+							pages={book.pages}
+							length={book.length}
+							image={book.image}
+						/>
+					))
+				}
 			</div>
 		</div>
 	</section>
 
 	<!-- about author -->
-	<section class="bg-[#F4F8FF]">
+	<section id="about-author" class="bg-[#F4F8FF]">
 		<div
-			class="container flex max-w-7xl flex-col items-center justify-center gap-5 px-3 py-10 md:flex-row md:gap-[8.88rem] md:px-5 md:py-[9.38rem]"
+			class="container flex flex-col items-center gap-10 px-3 py-10 text-primary md:px-5 lg:flex-row lg:gap-[4rem] lg:py-[9.8rem] xl:gap-[8.88rem]"
 		>
-			<!-- author image -->
-			<div class="relative z-20 flex w-full max-w-[550px] flex-1 shadow-lg">
+			<!-- left col - author image -->
+			<div class="relative flex flex-1">
+				<Image
+					src="/images/author.jpg"
+					alt="Author"
+					width={34.375 * 16}
+					height={40.625 * 16}
+					class="relative z-10 w-full max-w-[40.625rem] shadow-lg"
+				/>
 				<div
-					class="absolute left-2 top-3 z-0 mb-6 h-full w-full border-[12px] border-secondary bg-transparent text-center shadow-lg md:left-6 md:top-8 md:text-left"
+					class="absolute left-3 top-3 z-0 h-full w-full max-w-[40.625rem] border-[10px] border-secondary shadow-lg sm:left-5 sm:top-5 lg:left-[40px] lg:top-[40px]"
 				>
 				</div>
-				<Image
-					src="/images/about-author.jpg"
-					alt="Author"
-					width={550}
-					height={650}
-					class="z-20 w-full"
-				/>
 			</div>
-
-			<!-- author info -->
-			<div class="flex flex-1 flex-col justify-center">
-				<Heading variant="h4">About Author</Heading>
+			<!-- righ col - author info -->
+			<div class="flex flex-1 flex-col items-center text-center md:text-left lg:items-start">
+				<Heading variant="h3" classes="capitalize">About the author</Heading>
 				<Hr />
-				<p class="mb-4 md:mb-[1.37rem]">
+				<p class="mb-5 px-5 text-center md:px-0 lg:mb-[3.2rem] lg:text-left">
 					All the Lorem Ipsum generators on the Internet tend to repeated predefined chunks as
 					necessary, making this the first true value generator on the Internet. It uses a
 					dictionary of over 200 Latin words, combined with a handful.
 				</p>
 
-				<!-- author publication stats -->
-				<div
-					class="md:mb-2.56rem mb-6 flex w-full flex-wrap justify-between divide-secondary md:divide-x-2"
-				>
-					<!-- 01 -->
-					<div class="flex flex-col">
-						<Heading variant="h2">02</Heading>
-						<p>Books Published</p>
+				<!-- stats wrapper -->
+				<div class="mb-5 grid grid-cols-1 gap-4 md:mb-8 md:grid-cols-3">
+					<!-- 01. books published -->
+					<div
+						class="flex flex-1 flex-col items-center gap-1 border-secondary pr-4 text-center md:items-start md:border-r md:text-left"
+					>
+						<div class="mr-4">
+							<p class="font-cardo text-[3.4375rem] font-bold text-primary">02</p>
+							<Heading variant="h2" class="md:text-md font-inter font-normal text-[#969AA0]">
+								Books Published
+							</Heading>
+						</div>
 					</div>
-					<!-- 02 -->
-					<div class="flex flex-col pl-[2rem]">
-						<Heading variant="h2">4.5</Heading>
-						<p>User Reviews</p>
+					<!-- 02. user review -->
+					<div
+						class="flex flex-1 flex-col items-center gap-1 border-secondary px-4 text-center md:items-start md:border-r md:text-left"
+					>
+						<div class="mr-4">
+							<p class="font-cardo text-[3.4375rem] font-bold text-primary">4.5</p>
+							<Heading variant="h2" class="md:text-md font-inter font-normal text-[#969AA0]">
+								User Reviews
+							</Heading>
+						</div>
 					</div>
-					<!-- 03 -->
-					<div class="flex flex-col pl-[2rem]">
-						<Heading variant="h2">04</Heading>
-						<p>Best Seller Awards</p>
+					<!-- 03. awards -->
+					<div
+						class="flex flex-1 flex-col items-center gap-1 text-center md:items-start md:text-left"
+					>
+						<div class="mr-4">
+							<p class="font-cardo text-[3.4375rem] font-bold text-primary">04</p>
+							<Heading variant="h2" class="md:text-md font-inter font-normal text-[#969AA0]">
+								Best Seller Awards
+							</Heading>
+						</div>
 					</div>
 				</div>
 
-				<!-- author contact info -->
+				<!-- contact info wrapper -->
 				<div
-					class="flex items-center gap-5 bg-primary px-[1.12rem] py-[0.94rem] text-white md:gap-[2.31rem]"
+					class="flex flex-col items-center gap-5 bg-primary px-[1.12rem] py-[0.94rem] text-white md:flex-row md:gap-[2.31rem]"
 				>
+					<!-- QR code -->
 					<Image
 						src="/images/qr-code.jpg"
-						alt="Author contact info qr code"
 						width={130}
 						height={130}
-						class="hidden w-full max-w-[130px] md:block"
+						class="w-full max-w-[130px]"
+						alt="qr code"
 					/>
-
-					<div class="flex flex-col items-start">
-						<Heading variant="h6" class="mb-3 text-secondary">John Abraham , Ph.d</Heading>
-						<p class="text-[1.1875rem] font-normal text-light-blue">
-							Mail : <a href="mailto:johnabraham@gmail.com" target="_blank">johnabraham@gmail.com</a
-							>
-						</p>
-						<p class="text-[1.1875rem] font-normal text-light-blue">
-							Phone : <a href="tel:+21235459000" target="_blank">(+2) 123 545 9000</a>
-						</p>
+					<!-- contact details -->
+					<div class="flex flex-col items-center justify-center gap-1 md:items-start">
+						<Heading variant="h5" aria-label="author's name" classes="text-secondary mb-2">
+							John Abraham, Ph.d
+						</Heading>
+						<a
+							href="mailto:johnabraham@gmail.com"
+							class="text-[1.1875rem] text-[#B4C7E7] transition duration-200 hover:text-white"
+							>Mail : johnabraham@gmail.com</a
+						>
+						<a
+							href="tel:+21235459000"
+							class="text-[1.1875rem] text-[#B4C7E7] transition duration-200 hover:text-white"
+							>Phone : (+2) 123 545 9000</a
+						>
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
+
+	<!-- trusted by the best -->
+	<section id="trust">
+		<div class="container flex flex-col items-center px-3 py-10 md:px-5 lg:py-[8.5rem]">
+			<!-- section title -->
+			<Heading variant="h3">Trusted by the Best</Heading>
+			<Hr />
+
+			<!-- brands wrapper -->
+			<div
+				class="mt-5 flex flex-col flex-wrap items-center justify-center gap-10 text-center text-primary sm:flex-row md:mt-10 md:gap-[6.06rem]"
+			>
+				<!-- brand 01 -->
+				<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
+					<Image
+						src="/images/amazen-corp.png"
+						alt="Amazen Corp"
+						width={95.22}
+						height={88.98496}
+						class="mb-4 max-w-[95.22px] md:mb-[1.78rem]"
+					/>
+					<Heading variant="h5">Amazen Corp</Heading>
+					<p>A long established fact that a who looking at its layout.</p>
+				</div>
+
+				<!-- brand 02 -->
+				<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
+					<Image
+						src="/images/megan-books.svg"
+						alt="Megan Books"
+						width={188.81696}
+						height={88.98496}
+						class="mb-4 max-w-[188.81696px] md:mb-[1.78rem]"
+					/>
+					<Heading variant="h5">Megan Books</Heading>
+					<p>A long established fact that a who looking at its layout.</p>
+				</div>
+
+				<!-- brand 03 -->
+				<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
+					<Image
+						src="/images/los-books.png"
+						alt="Los Books"
+						width={140.89008}
+						height={88.98496}
+						class="mb-4 max-w-[140.89008px] md:mb-[1.78rem]"
+					/>
+					<Heading variant="h5">Los Books</Heading>
+					<p>A long established fact that a who looking at its layout.</p>
+				</div>
+
+				<!-- brand 04 -->
+				<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
+					<Image
+						src="/images/urban-lib.png"
+						alt="Los Books"
+						width={99.77008}
+						height={88.98496}
+						class="mb-4 max-w-[140.89008px] md:mb-[1.78rem]"
+					/>
+					<Heading variant="h5">Urban Lib</Heading>
+					<p>A long established fact that a who looking at its layout.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- get a copy today -->
+	<section id="get-a-copy" class="bg-primary text-white">
+		<div
+			class="container flex flex-col-reverse items-center justify-between gap-5 px-3 py-10 md:flex-row md:gap-[4rem] md:px-5 md:py-9 lg:gap-[8rem]"
+		>
+			<!-- left col - text -->
+			<div class="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
+				<Heading variant="h3" classes="md:leading-snug">Get Book Copy Today!</Heading>
+				<Hr />
+				<p class="text-md mb-[1.94rem] max-w-sm text-light-blue md:max-w-lg md:text-lg">
+					This the first true value generator on the Internet. It uses alphas dictionary of over 200
+					Latin words.
+				</p>
+				<Link link="/" btnType="outline" classes="text-white hover:text-primary">Order Today</Link>
+			</div>
+			<!-- right col - image -->
+			<div class="flex flex-1 flex-col">
+				<Image
+					src="/images/get-book-copy.png"
+					alt="A copy of the book"
+					width={640}
+					height={426.88}
+					class="w-full lg:min-w-[640px]"
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- what will you learn -->
+	<section id="wywl">
+		<div class="container flex flex-col items-center gap-5 px-3 py-10 md:px-5 lg:py-[9rem]">
+			<!-- section title -->
+			<Heading variant="h3">What will you learn?</Heading>
+			<Hr />
+
+			<!-- section content wrapper -->
+			<div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-[6.19rem]">
+				<!-- left col - cards -->
+				<div
+					class="grid grid-cols-1 gap-5 overflow-hidden text-center md:grid-cols-2 md:gap-[1.88rem] md:text-left"
+				>
+					<!-- card item 01 -->
+					<div
+						class="flex flex-1 flex-col items-center justify-center gap-5 bg-[#F4F8FF] px-[2.06rem] py-[2.56rem] md:items-start"
+					>
+						<span
+							class="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-secondary font-cardo text-2xl font-bold text-primary"
+							>01</span
+						>
+						<Heading variant="h5" classes="text-primary text-xl md:text-[1.5rem]">
+							Use HDFS & Map Reduce for storing & analyzing data at scale.
+						</Heading>
+					</div>
+					<!-- card item 02 -->
+					<div
+						class="flex flex-1 flex-col items-center justify-center gap-5 bg-[#F4F8FF] px-[2.06rem] py-[2.56rem] md:items-start"
+					>
+						<span
+							class="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-secondary font-cardo text-2xl font-bold text-primary"
+							>02</span
+						>
+						<Heading variant="h5" classes="text-primary text-xl md:text-[1.5rem]">
+							Use HDFS & Map Reduce for storing & analyzing data at scale.
+						</Heading>
+					</div>
+					<!-- card item 03 -->
+					<div
+						class="flex flex-1 flex-col items-center justify-center gap-5 bg-[#F4F8FF] px-[2.06rem] py-[2.56rem] md:items-start"
+					>
+						<span
+							class="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-secondary font-cardo text-2xl font-bold text-primary"
+							>03</span
+						>
+						<Heading variant="h5" classes="text-primary text-xl md:text-[1.5rem]">
+							Use HDFS & Map Reduce for storing & analyzing data at scale.
+						</Heading>
+					</div>
+					<!-- card item 04 -->
+					<div
+						class="flex flex-1 flex-col items-center justify-center gap-5 bg-[#F4F8FF] px-[2.06rem] py-[2.56rem] md:items-start"
+					>
+						<span
+							class="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-secondary font-cardo text-2xl font-bold text-primary"
+							>04</span
+						>
+						<Heading variant="h5" classes="text-primary text-xl md:text-[1.5rem]">
+							Use HDFS & Map Reduce for storing & analyzing data at scale.
+						</Heading>
+					</div>
+				</div>
+
+				<!-- right col - image -->
+				<div class="relative flex">
+					<Image
+						src="/images/wywl.jpg"
+						alt="Image - Women reading book"
+						height={650}
+						width={550}
+						class="z-10 w-full max-w-[550px] shadow-lg"
+					/>
+					<div
+						class="absolute left-2 top-2 z-0 h-full w-full max-w-[550px] border-[10px] border-secondary md:left-5 md:top-5"
+					>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- chapter includes -->
+	<section id="chapter-includes" class="bg-[#F4F8FF] text-primary">
+		<div class="container flex flex-col items-center px-3 py-10 md:px-5 md:py-[9rem]">
+			<!-- section title -->
+			<Heading>The Chapter Includes</Heading>
+			<Hr />
+
+			<!-- content wrapper -->
+			<div
+				class="content-wrapper mt-5 grid grid-cols-1 gap-5 text-center md:mt-[3.25rem] md:gap-[2.5rem] md:text-left lg:grid-cols-2"
+			>
+				<!-- content item 01 -->
+				<div
+					class="flex w-full flex-col items-center gap-3 bg-white px-[3.25rem] py-[3rem] shadow-light md:items-start md:gap-4"
+				>
+					<Heading variant="h5">Chapter- 01 Get Started Intro</Heading>
+					<p class="text-center text-sm leading-relaxed md:text-left md:text-lg">
+						Making this the first true value generator on the Internet. It of over 200 Latin words,
+						combined with a handful.
+					</p>
+					<!-- length and pages info wrapper -->
+					<div class="flex flex-col gap-2 md:flex-row">
+						<!-- pages -->
+						<div class="flex items-center gap-2 md:gap-3">
+							<div class="h-4 w-4 rounded-full bg-secondary"></div>
+							<p class="font-cardo text-lg font-bold text-primary">Pages:</p>
+							<p class="text-lg">85 Pages</p>
+						</div>
+						<!-- length -->
+						<div class="flex items-center gap-2 md:gap-3">
+							<div class="h-4 w-4 rounded-full bg-secondary"></div>
+							<p class="font-cardo text-lg font-bold text-primary">Length:</p>
+							<p class="text-lg">1 hr 15 min</p>
+						</div>
+					</div>
+				</div>
+				<!-- content item 02 -->
+				<div
+					class="flex w-full flex-col items-center gap-3 bg-white px-[3.25rem] py-[3rem] shadow-light md:items-start md:gap-4"
+				>
+					<Heading variant="h5">Chapter- 02 Create a Massive Content</Heading>
+					<p class="text-center text-sm leading-relaxed md:text-left md:text-lg">
+						Making this the first true value generator on the Internet. It of over 200 Latin words,
+						combined with a handful.
+					</p>
+					<!-- length and pages info wrapper -->
+					<div class="flex flex-col gap-2 md:flex-row">
+						<!-- pages -->
+						<div class="flex items-center gap-2 md:gap-3">
+							<div class="h-4 w-4 rounded-full bg-secondary"></div>
+							<p class="font-cardo text-lg font-bold text-primary">Pages:</p>
+							<p class="text-lg">85 Pages</p>
+						</div>
+						<!-- length -->
+						<div class="flex items-center gap-2 md:gap-3">
+							<div class="h-4 w-4 rounded-full bg-secondary"></div>
+							<p class="font-cardo text-lg font-bold text-primary">Length:</p>
+							<p class="text-lg">1 hr 15 min</p>
+						</div>
+					</div>
+				</div>
+				<!-- content item 03 -->
+				<div
+					class="flex w-full flex-col items-center gap-3 bg-white px-[3.25rem] py-[3rem] shadow-light md:items-start md:gap-4"
+				>
+					<Heading variant="h5">Chapter- 03 Maintaining the Creative Arcs</Heading>
+					<p class="text-center text-sm leading-relaxed md:text-left md:text-lg">
+						Making this the first true value generator on the Internet. It of over 200 Latin words,
+						combined with a handful.
+					</p>
+					<!-- length and pages info wrapper -->
+					<div class="flex flex-col gap-2 md:flex-row">
+						<!-- pages -->
+						<div class="flex items-center gap-2 md:gap-3">
+							<div class="h-4 w-4 rounded-full bg-secondary"></div>
+							<p class="font-cardo text-lg font-bold text-primary">Pages:</p>
+							<p class="text-lg">85 Pages</p>
+						</div>
+						<!-- length -->
+						<div class="flex items-center gap-2 md:gap-3">
+							<div class="h-4 w-4 rounded-full bg-secondary"></div>
+							<p class="font-cardo text-lg font-bold text-primary">Length:</p>
+							<p class="text-lg">1 hr 15 min</p>
+						</div>
+					</div>
+				</div>
+				<!-- content item 04 -->
+				<div
+					class="flex w-full flex-col items-center gap-3 bg-white px-[3.25rem] py-[3rem] shadow-light md:items-start md:gap-4"
+				>
+					<Heading variant="h5">Chapter- 04 The Conclusion</Heading>
+					<p class="text-center text-sm leading-relaxed md:text-left md:text-lg">
+						Making this the first true value generator on the Internet. It of over 200 Latin words,
+						combined with a handful.
+					</p>
+					<!-- length and pages info wrapper -->
+					<div class="flex flex-col gap-2 md:flex-row">
+						<!-- pages -->
+						<div class="flex items-center gap-2 md:gap-3">
+							<div class="h-4 w-4 rounded-full bg-secondary"></div>
+							<p class="font-cardo text-lg font-bold text-primary">Pages:</p>
+							<p class="text-lg">85 Pages</p>
+						</div>
+						<!-- length -->
+						<div class="flex items-center gap-2 md:gap-3">
+							<div class="h-4 w-4 rounded-full bg-secondary"></div>
+							<p class="font-cardo text-lg font-bold text-primary">Length:</p>
+							<p class="text-lg">1 hr 15 min</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- call to action button / link -->
+			<Link link="/" btnType="primary" size="lg" classes="mt-5 md:mt-[4.9375rem]">
+				Start a 15-Days Free Trial
+			</Link>
+
+			<p class="mt-5 text-center text-lg md:mt-8">
+				Have any question? <a href="/" class="text-primary underline">Contact us</a>
+			</p>
 		</div>
 	</section>
 </MainLayout>
