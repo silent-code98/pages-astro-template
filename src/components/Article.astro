@@ -1,0 +1,42 @@
+---
+// components
+import { Image } from 'astro:assets'
+import Heading from './Heading.astro'
+
+// types and props
+interface Props {
+	image: string
+	title: string
+	excerpt: string
+	author: string
+	date: string
+}
+
+const { image, title, excerpt, author, date } = Astro.props
+---
+
+<article class="flex w-full max-w-[410px] flex-col bg-white shadow-light">
+	<!-- featured image -->
+	<Image src={image} alt={title} width={410} height={326} class="w-full max-w-[410px]" />
+
+	<!-- post excerpt -->
+	<div class="flex flex-col gap-3 px-[1.94rem] py-[1.69rem]">
+		<Heading variant="h5">{title}</Heading>
+		<p class="text-[1.1875rem]">
+			{excerpt}
+		</p>
+
+		<!-- card footer -->
+		<div class="flex items-center justify-between font-medium text-primary">
+			<a
+				href="/"
+				target="_blank"
+				class="relative px-1 py-1 font-cardo text-lg font-bold text-primary transition duration-200 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full before:bg-primary hover:text-secondary hover:before:bg-secondary"
+				>Read more</a
+			>
+
+			<!-- author and date wrapper -->
+			<div class="flex">{author} • {date}</div>
+		</div>
+	</div>
+</article>
