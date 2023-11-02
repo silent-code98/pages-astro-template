@@ -18,7 +18,7 @@ const { iconName, link, label, classes, isFooter = false } = Astro.props as Prop
 
 // component style
 const style = twMerge(
-	'flex items-center justify-center border border border-white border-white bg-white text-center text-primary transition duration-200 hover:border-secondary hover:border-secondary hover:bg-secondary hover:text-primary md:h-[45px] md:w-[45px]',
+	'flex items-center justify-center border border border-white border-white bg-white text-center text-primary transition duration-200 hover:border-secondary hover:border-secondary hover:bg-secondary hover:text-primary h-[45px] w-[45px]',
 	isFooter && 'bg-transparent border-secondary hover:bg-secondary text-white hover:text-primary',
 	classes
 )
