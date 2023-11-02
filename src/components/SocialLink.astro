@@ -1,25 +1,30 @@
 ---
+// functions
+import { twMerge } from 'tailwind-merge'
+
 // components
-import Icon from "astro-icon";
+import Icon from 'astro-icon'
 
 // types and props
-interface Props {
-  iconName: string;
-  link: string;
-  label: string;
+export interface Props {
+	iconName: string
+	link: string
+	label: string
+	classes?: string
+	isFooter: boolean
 }
 
-const { iconName, link, label } = Astro.props;
+const { iconName, link, label, classes, isFooter = false } = Astro.props as Props
+
+// component style
+const style = twMerge(
+	'flex items-center justify-center border border border-white border-white bg-white text-center text-primary transition duration-200 hover:border-secondary hover:border-secondary hover:bg-secondary hover:text-primary md:h-[45px] md:w-[45px]',
+	isFooter && 'bg-transparent border-secondary hover:bg-secondary text-white hover:text-primary',
+	classes
+)
 ---
 
 <!-- social link component -->
-<a
-  href={link}
-  target="_blank"
-  aria-label={label}
-  class:list={[
-    "text-center text-primary bg-white md:w-[45px] md:h-[45px] flex items-center justify-center hover:bg-secondary border border-white hover:text-primary hover:border-secondary transition duration-200",
-  ]}
->
-  <Icon name={iconName} class="h-[1.1875rem]" />
+<a href={link} target="_blank" aria-label={label} class:list={[style]}>
+	<Icon name={iconName} class="h-[1.1875rem]" />
 </a>

@@ -2,13 +2,14 @@
 import './../global.scss'
 // component imports
 import Nav from '../components/Nav.astro'
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
-	title: string;
-	desc?: string;
+	title: string
+	desc?: string
 }
 
-const {title = 'Pages | BookStore', desc} = Astro.props
+const { title = 'Pages | BookStore', desc } = Astro.props
 ---
 
 <html lang="en">
@@ -19,23 +20,19 @@ const {title = 'Pages | BookStore', desc} = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="max-w-[1920px] mx-auto relative">
+	<body class="relative mx-auto max-w-[1920px]">
 		<Nav />
-        <slot />
-	</body>
+		<slot />
+	</body><script>
+		import Lenis from '@studio-freight/lenis'
+
+		const lenis = new Lenis()
+
+		function raf(time) {
+			lenis.raf(time)
+			requestAnimationFrame(raf)
+		}
+
+		requestAnimationFrame(raf)
+	</script>
 </html>
-	
-
-<script>
-	import Lenis from '@studio-freight/lenis'
-
-	const lenis = new Lenis()
-
-
-	function raf(time) {
-	lenis.raf(time)
-	requestAnimationFrame(raf)
-	}
-
-	requestAnimationFrame(raf);
-</script>

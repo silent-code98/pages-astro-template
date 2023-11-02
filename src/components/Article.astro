@@ -15,14 +15,24 @@ interface Props {
 const { image, title, excerpt, author, date } = Astro.props
 ---
 
-<article class="flex w-full max-w-[410px] flex-col bg-white shadow-light">
+<article class="group flex w-full max-w-[410px] flex-col bg-white shadow-light">
 	<!-- featured image -->
-	<Image src={image} alt={title} width={410} height={326} class="w-full max-w-[410px]" />
+	<div class="flex overflow-hidden">
+		<Image
+			src={image}
+			alt={title}
+			width={410}
+			height={326}
+			class="w-full max-w-[410px] transition duration-100 group-hover:rotate-3 group-hover:scale-110"
+		/>
+	</div>
 
 	<!-- post excerpt -->
 	<div class="flex flex-col gap-3 px-[1.94rem] py-[1.69rem]">
-		<Heading variant="h5">{title}</Heading>
-		<p class="text-[1.1875rem]">
+		<a href="/" class="transition duration-200 hover:text-secondary">
+			<Heading variant="h5">{title}</Heading>
+		</a>
+		<p class="text-base md:text-[1.1875rem]">
 			{excerpt}
 		</p>
 
@@ -31,7 +41,7 @@ const { image, title, excerpt, author, date } = Astro.props
 			<a
 				href="/"
 				target="_blank"
-				class="relative px-1 py-1 font-cardo text-lg font-bold text-primary transition duration-200 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full before:bg-primary hover:text-secondary hover:before:bg-secondary"
+				class="relative px-1 py-[2px] font-cardo text-lg font-bold text-primary transition duration-200 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full before:bg-primary hover:text-secondary hover:before:bg-secondary"
 				>Read more</a
 			>
 

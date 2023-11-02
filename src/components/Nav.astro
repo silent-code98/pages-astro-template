@@ -37,8 +37,8 @@ import { primaryLinks } from '../data/nav-links'
 			>
 				{
 					primaryLinks.map((l) => (
-						<li class="group relative flex gap-1 border-b px-5 py-3 md:border-0 md:p-0">
-							<a class="transition duration-200 hover:text-secondary" href={l.href}>
+						<li class="group relative flex w-full gap-1 border-b px-5 py-3 md:border-0 md:p-0">
+							<a class="block w-full transition duration-200 hover:text-secondary" href={l.href}>
 								{l.text}
 							</a>
 							{l.subPages?.length && <Icon name="mdi:chevron-down" class="w-5" />}
@@ -93,7 +93,7 @@ import { primaryLinks } from '../data/nav-links'
 	</div>
 </nav>
 
-<script>
+<script type="module" is:inline>
 	const navToggle = document.querySelector('.NAV_TOGGLE_BTN')
 	const navMenu = document.querySelector('.NAV_MENU')
 

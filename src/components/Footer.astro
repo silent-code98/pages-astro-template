@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets'
+import { socialLinks } from '../data/social-links'
+import SocialLink from './SocialLink.astro'
+---
+
+<footer class="bg-primary text-white">
+	<div class="container flex px-3 py-5 md:px-5 md:py-10">
+		<!-- col 1 -->
+		<div class="flex flex-1 flex-col gap-4 md:gap-7">
+			<a href="/"><Image src="/images/logo.svg" alt="Pages" width={129} height={38} /></a>
+			<div class="flex gap-3">
+				{
+					socialLinks.map((link) => (
+						<SocialLink iconName={link.name} label={link.label} link={link.link} isFooter />
+					))
+				}
+			</div>
+		</div>
+	</div>
+</footer>
