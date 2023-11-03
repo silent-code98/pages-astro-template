@@ -2,14 +2,15 @@
 import './../global.scss'
 // component imports
 import Nav from '../components/Nav.astro'
-import { ViewTransitions } from 'astro:transitions'
+import Footer from '../components/Footer.astro'
 
+// types and props
 interface Props {
 	title: string
 	desc?: string
 }
 
-const { title = 'Pages | BookStore', desc } = Astro.props
+const { title = 'Pages | BookStore', desc } = Astro.props as Props
 ---
 
 <html lang="en">
@@ -21,9 +22,19 @@ const { title = 'Pages | BookStore', desc } = Astro.props
 		<title>{title}</title>
 	</head>
 	<body class="relative mx-auto max-w-[1920px]">
+		<!-- header navigation bar -->
 		<Nav />
-		<slot />
-	</body><script>
+
+		<!-- main area -->
+		<main class="mx-auto w-full max-w-[1920px] overflow-hidden bg-white">
+			<slot />
+		</main>
+
+		<!-- footer -->
+		<Footer />
+	</body>
+
+	<script>
 		import Lenis from '@studio-freight/lenis'
 
 		const lenis = new Lenis()

@@ -1,15 +1,17 @@
 ---
-import { Image } from 'astro:assets'
+// components
+import MainLayout from '../layouts/MainLayout.astro'
 import Heading from '../components/Heading.astro'
+import { Image } from 'astro:assets'
 import Hr from '../components/Hr.astro'
 import Link from '../components/Link.astro'
-import MainLayout from '../layouts/MainLayout.astro'
 import Icon from 'astro-icon'
 import FeaturedBook from '../components/FeaturedBook.astro'
-import { featuredBooks } from '../data/books'
 import Article from '../components/Article.astro'
+
+// data
+import { featuredBooks } from '../data/books'
 import { posts } from '../data/posts'
-import Footer from '../components/Footer.astro'
 ---
 
 <MainLayout title="Home | Pages - BookStore">
@@ -722,7 +724,4 @@ import Footer from '../components/Footer.astro'
 			</div>
 		</div>
 	</section>
-
-	<!-- footer -->
-	<Footer />
 </MainLayout>
