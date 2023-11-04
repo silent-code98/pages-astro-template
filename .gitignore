@@ -6,6 +6,9 @@ dist/
 # dependencies
 node_modules/
 
+# components
+src/components/GetTemplate.astro
+
 # logs
 npm-debug.log*
 yarn-debug.log*

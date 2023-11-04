@@ -36,7 +36,7 @@ import { posts } from '../data/posts'
 				<Heading variant="h1" classes="mb-[2rem]">Books are uniquely portable magic</Heading>
 
 				<!-- /hero description -->
-				<p class="mb-[3rem] text-light-blue md:leading-loose">
+				<p class="mb-[3rem] max-w-2xl text-light-blue md:leading-loose">
 					There are many variations of passages of Lorem Ipsum available, but the majority have
 					suffered alteration in some form.
 				</p>
@@ -107,7 +107,7 @@ import { posts } from '../data/posts'
 			<Hr classes="max-w-[3.4375rem] mt-[1.38rem] mb-[2rem] md:mb-[3.56rem]" />
 
 			<!-- books container -->
-			<div class="flex w-full flex-col gap-10 lg:flex-row lg:gap-3">
+			<div class="flex w-full flex-col items-center justify-between gap-10 lg:flex-row">
 				{
 					featuredBooks.map((book) => (
 						<FeaturedBook

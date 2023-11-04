@@ -3,6 +3,7 @@ import './../global.scss'
 // component imports
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
+import GetTemplate from '../components/GetTemplate.astro'
 
 // types and props
 interface Props {
@@ -29,6 +30,8 @@ const { title = 'Pages | BookStore', desc } = Astro.props as Props
 		<main class="mx-auto w-full max-w-[1920px] overflow-hidden bg-white">
 			<slot />
 		</main>
+
+		<GetTemplate />
 
 		<!-- footer -->
 		<Footer />
