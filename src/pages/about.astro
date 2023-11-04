@@ -1,11 +1,177 @@
 ---
-import { Image } from 'astro:assets';
+// components
 import MainLayout from '../layouts/MainLayout.astro'
-import Banner from '../components/Banner.astro';
+import { Image } from 'astro:assets'
+import Heading from '../components/Heading.astro'
+import Banner from '../components/Banner.astro'
+import Icon from 'astro-icon'
+import Link from '../components/Link.astro'
+
+// assets
+import theAuthorImg from '../assets/images/author-lg.jpg'
+import authorStory from '../assets/images/author-story.jpg'
+
+// data
+import { socialLinks } from '../data/social-links'
+import Hr from '../components/Hr.astro'
 ---
 
-<MainLayout title='About Us | Pages'>
-   <Banner title='About'  desc='Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, et animi incidunt dolorem praesentium quod modi veritatis nesciunt harum soluta?' />
+<MainLayout title="About Us | Pages">
+	<Banner
+		title="About"
+		desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, et animi incidunt dolorem praesentium quod modi veritatis nesciunt harum soluta?"
+	/>
 
-   
+	<!-- about the author -->
+	<section id="author-about" class="bg-[#F6F8FC] text-primary">
+		<div class="container flex flex-col gap-5 px-3 py-10 md:gap-[5rem] md:px-5 lg:py-[9rem]">
+			<Image
+				src={theAuthorImg}
+				alt="The Author"
+				width={1300}
+				height={700}
+				class="w-full max-w-[1300px] shadow-light"
+			/>
+
+			<!-- about author content wrapper -->
+			<div class="flex flex-col-reverse gap-5 lg:flex-row lg:gap-[6.75rem]">
+				<!-- left col -->
+				<aside
+					class="flex flex-1 border-2 border-blue-100 bg-white px-5 py-7 md:px-[4.12rem] md:py-[2.81rem]"
+				>
+					<!-- inner left col -->
+					<div class="flex flex-1 flex-col gap-3 md:gap-6">
+						<Heading variant="h6" classes="text-base md:text-lg">Country :</Heading>
+						<Heading variant="h6" classes="text-base md:text-lg">Language :</Heading>
+						<Heading variant="h6" classes="text-base md:text-lg">Genre :</Heading>
+						<Heading variant="h6" classes="text-base md:text-lg">Publication date :</Heading>
+						<Heading variant="h6" classes="text-base md:text-lg">Share us on :</Heading>
+					</div>
+
+					<!-- inner right col -->
+					<div class="flex flex-1 flex-col gap-3 md:gap-6">
+						<p class="text-base md:text-lg">United Kingdom</p>
+						<p class="text-base md:text-lg">English</p>
+						<p class="text-base md:text-lg">History</p>
+						<p class="text-base md:text-lg">1991</p>
+						<div class="flex items-center gap-3">
+							{
+								socialLinks.map((l) => (
+									<a href={l.link} target="_blank" class="group">
+										<Icon
+											name={l.name}
+											class="h-6 w-6 text-primary transition duration-200 group-hover:text-secondary"
+										/>
+									</a>
+								))
+							}
+						</div>
+					</div>
+				</aside>
+
+				<!-- right col -->
+				<div class="flex flex-1 flex-col md:flex-[2]">
+					<Heading>About Dr. John Abraham</Heading>
+					<Hr />
+
+					<p>
+						All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as
+						necessary, making this the first true generator on the Internet. It uses a dictionary of
+						over 200 Latin words, that can combined with a handful of model sentence structures.
+					</p>
+
+					<Link link="/" btnType="primary" size="sm" classes="mt-5 md:mt-8">Contact Now</Link>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- auhor's story -->
+	<section id="author-story" class="text-primary">
+		<div
+			class="container flex flex-col gap-5 px-3 py-10 md:gap-10 md:px-5 lg:flex-row lg:gap-[6.25rem] lg:py-[9rem]"
+		>
+			<!-- left col - my story -->
+			<div class="flex flex-1 flex-col">
+				<Heading variant="h3">My Story</Heading>
+				<Hr />
+				<p>
+					Making this the first true generator on the Internet. It uses a dictionary of over 200
+					Latin words, combined with a handful of model sentence structures.
+				</p>
+
+				<!-- timeline wrapper -->
+				<div class="ga-4 ml-0 mt-5 flex flex-col md:ml-11 md:mt-8 md:gap-6">
+					<!-- timeline item wrapper - 01 -->
+					<div
+						class="relative flex gap-4 before:absolute before:left-8 before:z-0 before:h-[120%] before:w-[1px] before:border before:border-dashed before:border-primary md:gap-6 lg:gap-[3rem]"
+					>
+						<!-- number -->
+						<p
+							class="z-20 h-max bg-secondary px-4 py-3 font-cardo text-3xl font-bold leading-none text-primary"
+						>
+							01
+						</p>
+
+						<!-- description -->
+						<div class="flex flex-col gap-2 md:gap-4">
+							<Heading variant="h5">Great Author Awards</Heading>
+							<p>
+								How to navigate around the interface and toggle on/off the panels you wish to use.
+							</p>
+						</div>
+					</div>
+
+					<!-- timeline item wrapper - 02 -->
+					<div
+						class="relative flex gap-4 before:absolute before:left-8 before:z-0 before:h-[120%] before:w-[1px] before:border before:border-dashed before:border-primary md:gap-6 lg:gap-[3rem]"
+					>
+						<!-- number -->
+						<p
+							class="z-20 h-max bg-secondary px-4 py-3 font-cardo text-3xl font-bold leading-none text-primary"
+						>
+							02
+						</p>
+
+						<!-- description -->
+						<div class="flex flex-col gap-2 md:gap-4">
+							<Heading variant="h5">10 Times New York Times ® Best Seller</Heading>
+							<p>
+								How to navigate around the interface and toggle on/off the panels you wish to use.
+							</p>
+						</div>
+					</div>
+
+					<!-- timeline item wrapper - 03 -->
+					<div class="relative flex gap-4 md:gap-6 lg:gap-[3rem]">
+						<!-- number -->
+						<p
+							class="z-20 h-max bg-secondary px-4 py-3 font-cardo text-3xl font-bold leading-none text-primary"
+						>
+							03
+						</p>
+
+						<!-- description -->
+						<div class="flex flex-col gap-2 md:gap-4">
+							<Heading variant="h5">Writer of Hack Productivity</Heading>
+							<p>
+								How to navigate around the interface and toggle on/off the panels you wish to use.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- right col - image -->
+			<div class="flex flex-1">
+				<Image
+					src={authorStory}
+					width={600}
+					height={650}
+					alt="Author"
+					class="max-w-[600px] shadow-xl"
+				/>
+			</div>
+		</div>
+	</section>
 </MainLayout>

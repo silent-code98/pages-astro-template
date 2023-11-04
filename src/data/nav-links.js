@@ -22,22 +22,8 @@ export const primaryLinks = [
 		]
 	},
 	{
-		href: '#',
-		text: 'About',
-		subPages: [
-			{
-				href: '#',
-				text: 'Mission'
-			},
-			{
-				href: '#',
-				text: 'Goal'
-			},
-			{
-				href: '#',
-				text: 'Careers'
-			}
-		]
+		href: '/about',
+		text: 'About'
 	},
 	{
 		href: '/',

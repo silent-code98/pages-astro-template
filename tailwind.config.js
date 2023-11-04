@@ -9,7 +9,10 @@ export default {
 				'light-blue': '#B4C7E7'
 			},
 			container: {
-				center: true
+				center: true,
+				screens: {
+					'2xl': '1300px'
+				}
 			},
 			boxShadow: {
 				light: '0px 35px 25px 0px rgba(4, 11, 20, 0.04)'
