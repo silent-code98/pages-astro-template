@@ -1,0 +1,43 @@
+---
+// components
+import FeaturedBook from '../FeaturedBook.astro'
+import Heading from '../Heading.astro'
+import Hr from '../Hr.astro'
+
+// data
+import { featuredBooks } from '../../data/books'
+import { twMerge } from 'tailwind-merge'
+
+// types and props
+interface Props {
+	classes?: string
+}
+
+const { classes } = Astro.props as Props
+
+// styles
+const styles = twMerge('overflow-hidden text-primary', classes)
+---
+
+<section id="featured-books" class:list={[styles]}>
+	<div class="container flex w-full flex-col items-center px-3 py-10 md:px-5 lg:py-[9rem]">
+		<!-- section title -->
+		<Heading variant="h2" classes="text-center">Author’s Book Includes</Heading>
+		<Hr classes="max-w-[3.4375rem] mt-[1.38rem] mb-[2rem] md:mb-[3.56rem]" />
+
+		<!-- books container -->
+		<div class="flex w-full flex-col items-center justify-between gap-10 lg:flex-row">
+			{
+				featuredBooks.map((book) => (
+					<FeaturedBook
+						name={book.name}
+						desc={book.desc}
+						pages={book.pages}
+						length={book.length}
+						image={book.image}
+					/>
+				))
+			}
+		</div>
+	</div>
+</section>

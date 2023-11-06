@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets'
+import Heading from '../Heading.astro'
+import Hr from '../Hr.astro'
+---
+
+<section id="trust">
+	<div class="container flex flex-col items-center px-3 py-10 md:px-5 lg:py-[8.5rem]">
+		<!-- section title -->
+		<Heading variant="h3">Trusted by the Best</Heading>
+		<Hr classes="my-4 md:my-6" />
+
+		<!-- brands wrapper -->
+		<div
+			class="mt-5 flex flex-col flex-wrap items-center justify-center gap-10 text-center text-primary sm:flex-row md:mt-10 md:gap-[6.06rem]"
+		>
+			<!-- brand 01 -->
+			<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
+				<Image
+					src="/images/amazen-corp.png"
+					alt="Amazen Corp"
+					width={95.22}
+					height={88.98496}
+					class="mb-4 max-w-[95.22px] md:mb-[1.78rem]"
+				/>
+				<Heading variant="h5">Amazen Corp</Heading>
+				<p>A long established fact that a who looking at its layout.</p>
+			</div>
+
+			<!-- brand 02 -->
+			<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
+				<Image
+					src="/images/megan-books.svg"
+					alt="Megan Books"
+					width={188.81696}
+					height={88.98496}
+					class="mb-4 max-w-[188.81696px] md:mb-[1.78rem]"
+				/>
+				<Heading variant="h5">Megan Books</Heading>
+				<p>A long established fact that a who looking at its layout.</p>
+			</div>
+
+			<!-- brand 03 -->
+			<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
+				<Image
+					src="/images/los-books.png"
+					alt="Los Books"
+					width={140.89008}
+					height={88.98496}
+					class="mb-4 max-w-[140.89008px] md:mb-[1.78rem]"
+				/>
+				<Heading variant="h5">Los Books</Heading>
+				<p>A long established fact that a who looking at its layout.</p>
+			</div>
+
+			<!-- brand 04 -->
+			<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
+				<Image
+					src="/images/urban-lib.png"
+					alt="Los Books"
+					width={99.77008}
+					height={88.98496}
+					class="mb-4 max-w-[140.89008px] md:mb-[1.78rem]"
+				/>
+				<Heading variant="h5">Urban Lib</Heading>
+				<p>A long established fact that a who looking at its layout.</p>
+			</div>
+		</div>
+	</div>
+</section>

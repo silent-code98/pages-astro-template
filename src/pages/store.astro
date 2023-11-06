@@ -1,0 +1,38 @@
+---
+import Banner from '../components/Banner.astro'
+import BookListing from '../components/BookListing.astro'
+import NewsletterSection from '../components/sections/NewsletterSection.astro'
+import { storeListings } from '../data/books'
+import MainLayout from '../layouts/MainLayout.astro'
+---
+
+<MainLayout title="Store | Pages">
+	<!-- banner -->
+	<Banner
+		title="My Store"
+		desc="There are many variations of passages of Lorem Ipsum available,  have suffered alteration in some form."
+	/>
+
+	<!-- books listing -->
+	<section id="books">
+		<div
+			class="container grid grid-cols-1 gap-4 px-5 py-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-[3rem] lg:py-[9rem]"
+		>
+			{
+				storeListings.map((book) => (
+					<BookListing
+						title={book.title}
+						desc={book.desc}
+						price={book.price}
+						image={book.image}
+						url={book.url}
+						bookType={book.bookType}
+					/>
+				))
+			}
+		</div>
+	</section>
+
+	<!-- newsletter -->
+	<NewsletterSection classes="lg:pt-0" />
+</MainLayout>

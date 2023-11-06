@@ -14,6 +14,9 @@ import authorStory from '../assets/images/author-story.jpg'
 // data
 import { socialLinks } from '../data/social-links'
 import Hr from '../components/Hr.astro'
+import FeaturedSection from '../components/sections/FeaturedSection.astro'
+import TrustSection from '../components/sections/TrustSection.astro'
+import NewsletterSection from '../components/sections/NewsletterSection.astro'
 ---
 
 <MainLayout title="About Us | Pages">
@@ -176,4 +179,13 @@ import Hr from '../components/Hr.astro'
 			</div>
 		</div>
 	</section>
+
+	<!-- featured books -->
+	<FeaturedSection classes="bg-[#F5F8FC]" />
+
+	<!-- trusted by -->
+	<TrustSection />
+
+	<!-- newsletter -->
+	<NewsletterSection classes=" lg:pb-[6rem] lg:pt-0" />
 </MainLayout>

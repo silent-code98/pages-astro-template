@@ -1,0 +1,47 @@
+---
+// components
+import { twMerge } from 'tailwind-merge'
+import Heading from '../Heading.astro'
+import Hr from '../Hr.astro'
+
+// types and props
+interface Props {
+	classes?: string
+}
+const { classes } = Astro.props as Props
+
+// styles
+const styles = twMerge('py-0 text-primary lg:py-[9rem]', classes)
+---
+
+<section id="news-letter" class:list={styles}>
+	<div
+		class="container flex flex-col items-center justify-center bg-secondary px-3 py-10 text-center md:px-5 lg:py-[9rem]"
+	>
+		<!-- section title & description -->
+		<div class="flex w-full max-w-3xl flex-col items-center justify-center">
+			<Heading variant="h4">Read a free chapter</Heading>
+			<Hr classes="bg-primary" />
+			<p class="max-w-xl text-base text-primary md:text-lg">
+				Making this the first true value generator on the Internet. It of over 200 Latin words,
+				combined with a handful.
+			</p>
+
+			<!-- subscription form -->
+			<form class="mt-4 flex w-full flex-col gap-5 md:mt-7 md:flex-row">
+				<input
+					type="email"
+					name="email"
+					id="email"
+					placeholder="Your email address..."
+					class="flex-[2] border-2 border-white bg-white px-[1.5rem] py-[1.06rem]"
+				/>
+				<input
+					type="submit"
+					value="Subscribe"
+					class="flex-1 cursor-pointer border-2 border-primary bg-primary px-[1.5rem] py-[1.06rem] font-cardo font-bold text-white transition duration-200 hover:bg-transparent hover:text-primary"
+				/>
+			</form>
+		</div>
+	</div>
+</section>

@@ -6,12 +6,13 @@ import { Image } from 'astro:assets'
 import Hr from '../components/Hr.astro'
 import Link from '../components/Link.astro'
 import Icon from 'astro-icon'
-import FeaturedBook from '../components/FeaturedBook.astro'
 import Article from '../components/Article.astro'
 
 // data
-import { featuredBooks } from '../data/books'
 import { posts } from '../data/posts'
+import FeaturedSection from '../components/sections/FeaturedSection.astro'
+import TrustSection from '../components/sections/TrustSection.astro'
+import NewsletterSection from '../components/sections/NewsletterSection.astro'
 ---
 
 <MainLayout title="Home | Pages - BookStore">
@@ -100,28 +101,7 @@ import { posts } from '../data/posts'
 	</header>
 
 	<!-- featured books -->
-	<section id="featured-books" class="overflow-hidden text-primary">
-		<div class="container flex w-full flex-col items-center px-3 py-10 md:px-5 lg:py-[9rem]">
-			<!-- section title -->
-			<Heading variant="h2" classes="text-center">Author’s Book Includes</Heading>
-			<Hr classes="max-w-[3.4375rem] mt-[1.38rem] mb-[2rem] md:mb-[3.56rem]" />
-
-			<!-- books container -->
-			<div class="flex w-full flex-col items-center justify-between gap-10 lg:flex-row">
-				{
-					featuredBooks.map((book) => (
-						<FeaturedBook
-							name={book.name}
-							desc={book.desc}
-							pages={book.pages}
-							length={book.length}
-							image={book.image}
-						/>
-					))
-				}
-			</div>
-		</div>
-	</section>
+	<FeaturedSection />
 
 	<!-- about author -->
 	<section id="about-author" class="bg-[#F4F8FF]">
@@ -223,70 +203,7 @@ import { posts } from '../data/posts'
 	</section>
 
 	<!-- trusted by the best -->
-	<section id="trust">
-		<div class="container flex flex-col items-center px-3 py-10 md:px-5 lg:py-[8.5rem]">
-			<!-- section title -->
-			<Heading variant="h3">Trusted by the Best</Heading>
-			<Hr classes="my-4 md:my-6" />
-
-			<!-- brands wrapper -->
-			<div
-				class="mt-5 flex flex-col flex-wrap items-center justify-center gap-10 text-center text-primary sm:flex-row md:mt-10 md:gap-[6.06rem]"
-			>
-				<!-- brand 01 -->
-				<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
-					<Image
-						src="/images/amazen-corp.png"
-						alt="Amazen Corp"
-						width={95.22}
-						height={88.98496}
-						class="mb-4 max-w-[95.22px] md:mb-[1.78rem]"
-					/>
-					<Heading variant="h5">Amazen Corp</Heading>
-					<p>A long established fact that a who looking at its layout.</p>
-				</div>
-
-				<!-- brand 02 -->
-				<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
-					<Image
-						src="/images/megan-books.svg"
-						alt="Megan Books"
-						width={188.81696}
-						height={88.98496}
-						class="mb-4 max-w-[188.81696px] md:mb-[1.78rem]"
-					/>
-					<Heading variant="h5">Megan Books</Heading>
-					<p>A long established fact that a who looking at its layout.</p>
-				</div>
-
-				<!-- brand 03 -->
-				<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
-					<Image
-						src="/images/los-books.png"
-						alt="Los Books"
-						width={140.89008}
-						height={88.98496}
-						class="mb-4 max-w-[140.89008px] md:mb-[1.78rem]"
-					/>
-					<Heading variant="h5">Los Books</Heading>
-					<p>A long established fact that a who looking at its layout.</p>
-				</div>
-
-				<!-- brand 04 -->
-				<div class="flex max-w-[248px] flex-1 flex-col items-center justify-start gap-[0.59rem]">
-					<Image
-						src="/images/urban-lib.png"
-						alt="Los Books"
-						width={99.77008}
-						height={88.98496}
-						class="mb-4 max-w-[140.89008px] md:mb-[1.78rem]"
-					/>
-					<Heading variant="h5">Urban Lib</Heading>
-					<p>A long established fact that a who looking at its layout.</p>
-				</div>
-			</div>
-		</div>
-	</section>
+	<TrustSection />
 
 	<!-- get a copy -->
 	<section id="get-a-copy" class="bg-primary text-white">
@@ -693,35 +610,5 @@ import { posts } from '../data/posts'
 	</section>
 
 	<!-- newsletter -->
-	<section id="news-letter" class="py-0 text-primary lg:py-[9rem]">
-		<div
-			class="container flex flex-col items-center justify-center bg-secondary px-3 py-10 text-center md:px-5 lg:py-[9rem]"
-		>
-			<!-- section title & description -->
-			<div class="flex w-full max-w-3xl flex-col items-center justify-center">
-				<Heading variant="h4">Read a free chapter</Heading>
-				<Hr classes="bg-primary" />
-				<p class="max-w-xl text-base text-primary md:text-lg">
-					Making this the first true value generator on the Internet. It of over 200 Latin words,
-					combined with a handful.
-				</p>
-
-				<!-- subscription form -->
-				<form class="mt-4 flex w-full flex-col gap-5 md:mt-7 md:flex-row">
-					<input
-						type="email"
-						name="email"
-						id="email"
-						placeholder="Your email address..."
-						class="flex-[2] border-2 border-white bg-white px-[1.5rem] py-[1.06rem]"
-					/>
-					<input
-						type="submit"
-						value="Subscribe"
-						class="flex-1 cursor-pointer border-2 border-primary bg-primary px-[1.5rem] py-[1.06rem] font-cardo font-bold text-white transition duration-200 hover:bg-transparent hover:text-primary"
-					/>
-				</form>
-			</div>
-		</div>
-	</section>
+	<NewsletterSection />
 </MainLayout>
