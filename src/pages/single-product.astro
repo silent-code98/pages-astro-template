@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets'
+import Banner from '../components/Banner.astro'
+import MainLayout from '../layouts/MainLayout.astro'
+import Heading from '../components/Heading.astro'
+---
+
+<MainLayout title="Atomic Ones | Pages">
+	<!-- banner -->
+	<Banner title="Atomic Ones" />
+
+	<!-- single product -->
+	<section id="single-product" class="text-primary">
+		<!-- single product wrapper -->
+		<div
+			class="container flex items-center justify-center gap-8 px-5 py-10 lg:gap-[5.38rem] lg:py-[9rem]"
+		>
+			<!-- left col - book cover -->
+			<div class="flex min-h-[650px] w-full max-w-[580px] items-center justify-center bg-[#F5F8FC]">
+				<Image
+					src={'/images/hero-book.jpg'}
+					alt="Atomic One"
+					width={380}
+					height={509}
+					class="w-full max-w-[380px]"
+				/>
+			</div>
+			<!-- right col - book details -->
+			<div class="flex flex-col gap-4">
+				<!-- book title -->
+				<Heading>The Atomic One</Heading>
+
+				<!-- price -->
+				<h3>$30.00 USD</h3>
+
+				<!-- book short description -->
+				<p>
+					Making this the first true generator on the Internet. It uses a dictionary of over 200
+					Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum
+					which looks reasonable. The generated Lorem Ipsum.
+				</p>
+
+				<!-- book info -->
+				<div class="flex flex-col"></div>
+			</div>
+		</div>
+	</section>
+</MainLayout>

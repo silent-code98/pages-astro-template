@@ -26,12 +26,12 @@ export const primaryLinks = [
 		text: 'About'
 	},
 	{
-		href: '/',
+		href: '/services',
 		text: 'Services'
 	},
 	{
-		href: '/style-guide',
-		text: 'Styles'
+		href: '/contact',
+		text: 'Contact'
 	}
 ]
 
