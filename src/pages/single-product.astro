@@ -3,17 +3,15 @@ import { Image } from 'astro:assets'
 import Banner from '../components/Banner.astro'
 import MainLayout from '../layouts/MainLayout.astro'
 import Heading from '../components/Heading.astro'
+import Icon from 'astro-icon'
 ---
 
 <MainLayout title="Atomic Ones | Pages">
-	<!-- banner -->
-	<Banner title="Atomic Ones" />
-
 	<!-- single product -->
 	<section id="single-product" class="text-primary">
 		<!-- single product wrapper -->
 		<div
-			class="container flex items-center justify-center gap-8 px-5 py-10 lg:gap-[5.38rem] lg:py-[9rem]"
+			class="container grid grid-cols-1 items-center justify-center gap-8 px-5 py-10 md:grid-cols-2 lg:flex-row lg:gap-[5.38rem] lg:py-[9rem]"
 		>
 			<!-- left col - book cover -->
 			<div class="flex min-h-[650px] w-full max-w-[580px] items-center justify-center bg-[#F5F8FC]">
@@ -28,10 +26,10 @@ import Heading from '../components/Heading.astro'
 			<!-- right col - book details -->
 			<div class="flex flex-col gap-4">
 				<!-- book title -->
-				<Heading>The Atomic One</Heading>
+				<Heading variant="h1" classes="text-3xl md:text-5xl">The Atomic One</Heading>
 
 				<!-- price -->
-				<h3>$30.00 USD</h3>
+				<h3 class="text-3xl font-bold text-secondary">$30.00 USD</h3>
 
 				<!-- book short description -->
 				<p>
@@ -41,10 +39,78 @@ import Heading from '../components/Heading.astro'
 				</p>
 
 				<!-- book info -->
-				<div class="flex flex-col gap-5">
+				<div class="flex flex-col gap-3">
+					<p class="flex items-center gap-5 text-xl font-bold">
+						Publisher <span class="">:</span>
+						<span class="">Learning Private Ltd. (Jan 1 2021)</span>
+					</p>
+					<p class="flex gap-5 text-xl font-bold">
+						Language <span class="">:</span>
+						<span class="">English</span>
+					</p>
+					<p class="flex gap-5 text-xl font-bold">
+						Paperback <span class="">:</span>
+						<span class="">212 pages</span>
+					</p>
+					<p class="flex gap-5 text-xl font-bold">
+						ISBN-10 <span class="">:</span>
+						<span class="">9788120345799</span>
+					</p>
+					<p class="flex gap-5 text-xl font-bold">
+						Dimensions <span class="">:</span>
+						<span class="">20 x 14 x 4 cm</span>
+					</p>
+				</div>
+
+				<!-- add to cart -->
+				<div class="mt-5 flex items-center gap-3">
+					<input
+						min="1"
+						max="10"
+						type="number"
+						name="qty"
+						id="qty"
+						class="border border-secondary p-3 py-[1.31rem] text-center font-cardo text-xl font-bold text-black"
+						value="1"
+					/>
+
+					<button
+						type="button"
+						class="group flex w-full max-w-[23.5625rem] items-center justify-center gap-3 border border-secondary bg-secondary px-5 py-[1.31rem] text-primary transition duration-200 hover:border-primary hover:bg-primary"
+					>
+						<Icon name="mdi:cart-outline" class="h-6 w-6 text-primary group-hover:text-white" />
+						<span class="font-cardo font-bold text-primary group-hover:text-white">Add to Cart</span
+						>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- product description & additional info - tabs -->
+	<section id="tabs">
+		<div class="container flex flex-col items-center justify-center py-10 lg:py-[9rem]">
+			<!-- tab controls wrapper -->
+			<div class="flex gap-3">
+				<!-- control - product description -->
+				<div class="flex">
+					<input type="radio" name="product-info" id="description" checked class="hidden" />
+					<label for="description" class="">Product description</label>
+				</div>
+				<!-- control - additional information -->
+				<div class="flex">
+					<input type="radio" name="product-info" id="additional-info" checked class="hidden" />
+					<label for="additional-info" class="">Product description</label>
+				</div>
+			</div>
+
+			<!-- tab contents -->
+			<div class="mt-5 flex flex-col">
+				<!-- content - product description -->
+				<div class="flex">
 					<p>
-						Publisher ‏ : ‎ Learning Private Limited (1 January 2021) Language ‏ : ‎ English
-						Paperback : ‎212 pages ISBN-10 ‏ : ‎ 9788120345799 Dimensions ‏ : ‎ 20 x 14 x 4 cm
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio reiciendis, et totam
+						quibusdam eveniet minus consequatur repudiandae neque perferendis corporis?
 					</p>
 				</div>
 			</div>
