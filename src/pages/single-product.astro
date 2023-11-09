@@ -1,6 +1,6 @@
 ---
+// components
 import { Image } from 'astro:assets'
-import Banner from '../components/Banner.astro'
 import MainLayout from '../layouts/MainLayout.astro'
 import Heading from '../components/Heading.astro'
 import Icon from 'astro-icon'
@@ -90,30 +90,25 @@ import Icon from 'astro-icon'
 	<!-- product description & additional info - tabs -->
 	<section id="tabs">
 		<div class="container flex flex-col items-center justify-center py-10 lg:py-[9rem]">
-			<!-- tab controls wrapper -->
-			<div class="flex gap-3">
-				<!-- control - product description -->
-				<div class="flex">
-					<input type="radio" name="product-info" id="description" checked class="hidden" />
-					<label for="description" class="">Product description</label>
-				</div>
-				<!-- control - additional information -->
-				<div class="flex">
-					<input type="radio" name="product-info" id="additional-info" checked class="hidden" />
-					<label for="additional-info" class="">Product description</label>
-				</div>
-			</div>
+			<!-- tabs controlls -->
+			<ul class="js-tablist" role="tablist">
+				<li role="presentation">
+					<a href="#section1" role="tab" id="section1-tab" aria-selected="true">Section 1</a>
+				</li>
+				<li role="presentation">
+					<a href="#section2" role="tab" id="section2-tab" tabindex="-1">Section 2</a>
+				</li>
+			</ul>
 
-			<!-- tab contents -->
-			<div class="mt-5 flex flex-col">
-				<!-- content - product description -->
-				<div class="flex">
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio reiciendis, et totam
-						quibusdam eveniet minus consequatur repudiandae neque perferendis corporis?
-					</p>
-				</div>
-			</div>
+			<!-- tabs contents -->
+			<section id="section1" role="tabpanel" tabindex="-1" aria-labelledby="section1-tab">
+				<h2>Section 1</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</section>
+			<section id="section2" role="tabpanel" tabindex="-1" aria-labelledby="section2-tab" hidden>
+				<h2>Section 2</h2>
+				<p>Nullam at diam nec arcu suscipit auctor non a erat.</p>
+			</section>
 		</div>
 	</section>
 </MainLayout>

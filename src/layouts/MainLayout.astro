@@ -35,18 +35,17 @@ const { title = 'Pages | BookStore', desc } = Astro.props as Props
 
 		<!-- footer -->
 		<Footer />
-	</body>
+		<script>
+			import Lenis from '@studio-freight/lenis'
 
-	<script>
-		import Lenis from '@studio-freight/lenis'
+			const lenis = new Lenis()
 
-		const lenis = new Lenis()
+			function raf(time) {
+				lenis.raf(time)
+				requestAnimationFrame(raf)
+			}
 
-		function raf(time) {
-			lenis.raf(time)
 			requestAnimationFrame(raf)
-		}
-
-		requestAnimationFrame(raf)
-	</script>
+		</script>
+	</body>
 </html>

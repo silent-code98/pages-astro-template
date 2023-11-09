@@ -16,8 +16,8 @@ export const primaryLinks = [
 				text: 'Blog Single'
 			},
 			{
-				href: '#',
-				text: 'Product'
+				href: '/single-product',
+				text: 'Product Single'
 			}
 		]
 	},
