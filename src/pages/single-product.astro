@@ -89,26 +89,49 @@ import Icon from 'astro-icon'
 
 	<!-- product description & additional info - tabs -->
 	<section id="tabs">
-		<div class="container flex flex-col items-center justify-center py-10 lg:py-[9rem]">
+		<div
+			class="container flex flex-col items-center justify-center px-5 py-10 md:px-7 lg:pb-[9rem]"
+		>
 			<!-- tabs controlls -->
-			<ul class="js-tablist" role="tablist">
-				<li role="presentation">
-					<a href="#section1" role="tab" id="section1-tab" aria-selected="true">Section 1</a>
-				</li>
-				<li role="presentation">
-					<a href="#section2" role="tab" id="section2-tab" tabindex="-1">Section 2</a>
-				</li>
-			</ul>
+			<div
+				class="TABS mb-6 flex w-full flex-col items-center justify-center gap-4 md:mb-12 md:flex-row"
+			>
+				<button
+					type="button"
+					class="TAB__CONTROL bg-primary px-[2.56rem] py-3 font-cardo text-lg font-bold uppercase text-white"
+					>Product Description</button
+				>
+				<button
+					type="button"
+					class="TAB__CONTROL bg-slate-100 px-[2.56rem] py-3 font-cardo text-lg font-bold uppercase text-primary"
+					>Additional Info</button
+				>
+			</div>
 
 			<!-- tabs contents -->
-			<section id="section1" role="tabpanel" tabindex="-1" aria-labelledby="section1-tab">
-				<h2>Section 1</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			</section>
-			<section id="section2" role="tabpanel" tabindex="-1" aria-labelledby="section2-tab" hidden>
-				<h2>Section 2</h2>
-				<p>Nullam at diam nec arcu suscipit auctor non a erat.</p>
-			</section>
+			<div id="tab-1" class="TAB__CONTENT flex gap-5 text-primary md:gap-[5.75rem]">
+				<div class="flex flex-1 flex-col gap-2 md:gap-4">
+					<Heading variant="h5">Do you offer discounts for education?</Heading>
+					<p>
+						There are many variations of passages of Lorem Ipsum available, but the majority have
+						suffered alteration in some form, bypassed injected humour, or randomised words which
+						don't look even slightly believable.
+					</p>
+				</div>
+				<div class="flex flex-1 flex-col gap-2 md:gap-4">
+					<Heading variant="h5">Is this book for me?</Heading>
+					<p>
+						There are many variations of passages of Lorem Ipsum available, but the majority have
+						suffered alteration in some form, bypassed injected humour, or randomised words which
+						don't look even slightly believable.
+					</p>
+				</div>
+			</div>
 		</div>
 	</section>
+
+	<script type="module">
+		// const tabControls = document.querySelectorAll('.TAB__CONTROL')
+		// const tabContents = document.querySelectorAll('.TAB__CONTENT')
+	</script>
 </MainLayout>

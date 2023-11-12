@@ -1,26 +1,28 @@
 {
-  "name": "01--pages---book-store-~-fc",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/tailwind": "^5.0.2",
-    "@studio-freight/lenis": "^1.0.27",
-    "astro": "^3.3.3",
-    "astro-icon": "^0.8.1",
-    "tailwind-merge": "^1.14.0",
-    "tailwindcss": "^3.3.3"
-  },
-  "devDependencies": {
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.1",
-    "prettier-plugin-tailwindcss": "^0.5.6",
-    "sass": "^1.69.4"
-  }
+	"name": "01--pages---book-store-~-fc",
+	"type": "module",
+	"version": "0.0.1",
+	"ignore": "[//node_modules/(?!.*.*/.*.mjs)/]",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/tailwind": "^5.0.2",
+		"@grrr/accessible-tabs": "^1.0.0",
+		"@studio-freight/lenis": "^1.0.27",
+		"astro": "^3.3.3",
+		"astro-icon": "^0.8.1",
+		"tailwind-merge": "^1.14.0",
+		"tailwindcss": "^3.3.3"
+	},
+	"devDependencies": {
+		"prettier": "^3.0.3",
+		"prettier-plugin-astro": "^0.12.1",
+		"prettier-plugin-tailwindcss": "^0.5.6",
+		"sass": "^1.69.4"
+	}
 }
