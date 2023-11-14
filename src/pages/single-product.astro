@@ -4,6 +4,7 @@ import { Image } from 'astro:assets'
 import MainLayout from '../layouts/MainLayout.astro'
 import Heading from '../components/Heading.astro'
 import Icon from 'astro-icon'
+import USPSection from '../components/sections/USPSection.astro'
 ---
 
 <MainLayout title="Atomic Ones | Pages">
@@ -114,7 +115,6 @@ import Icon from 'astro-icon'
 
 			<!-- tabs contents -->
 			<!-- @ add additional tab content in sync order with tab controls -->
-
 			<div
 				id="tab1"
 				class="TAB__CONTENT flex flex-col gap-5 text-primary md:flex-row md:gap-[5.75rem]"
@@ -143,25 +143,30 @@ import Icon from 'astro-icon'
 				<div class="flex flex-1 flex-col gap-2 md:gap-4">
 					<Heading variant="h5">Do you offer discounts for education?</Heading>
 					<p>
-						There are many variations of passages of Lorem Ipsum available, but the majority have
-						suffered alteration in some form, bypassed injected humour, or randomised words which
-						don't look even slightly believable.
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nisi ad dolore
+						totam modi commodi officia dolorum expedita perspiciatis voluptatibus quidem ratione
+						voluptatem doloremque animi iusto optio voluptate, debitis tempora, ex nesciunt.
+						Tempora, minus? Mollitia delectus vero, sapiente dolor expedita tempora illo? Eaque amet
+						quas vitae odio voluptatum totam explicabo.
 					</p>
 				</div>
 				<div class="flex flex-1 flex-col gap-2 md:gap-4">
-					<Heading variant="h5">Is this book for me? Is this book for me?</Heading>
+					<Heading variant="h5">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, aliquam.
+					</Heading>
 					<p>
-						There are many variations of passages of Lorem Ipsum available, but the majority have
-						suffered alteration in some form, bypassed injected humour, or randomised words which
-						don't look even slightly believable. There are many variations of passages of Lorem
-						Ipsum available, but the majority have suffered alteration in some form, bypassed
-						injected humour, or randomised words which don't look even slightly believable.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque incidunt mollitia enim,
+						facere maiores impedit facilis earum quas cumque, ex nemo adipisci minima! Quidem
+						eveniet voluptate nobis sequi nihil odio.
 					</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
+	<USPSection />
+
+	<!-- scripts -->
 	<script>
 		// @ TABS
 		// @@ script for the tab function
