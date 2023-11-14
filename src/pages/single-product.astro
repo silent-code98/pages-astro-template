@@ -93,23 +93,32 @@ import Icon from 'astro-icon'
 			class="container flex flex-col items-center justify-center px-5 py-10 md:px-7 lg:pb-[9rem]"
 		>
 			<!-- tabs controlls -->
+			<!-- @ add additional tab controls in sync order with tab content -->
+			<!-- @@ ex: 3rd control button will control the 3rd tab content container -->
 			<div
-				class="TABS mb-6 flex w-full flex-col items-center justify-center gap-4 md:mb-12 md:flex-row"
+				class="TABS mb-6 flex w-full flex-col items-center justify-center md:mb-12 md:flex-row md:gap-4"
 			>
 				<button
 					type="button"
-					class="TAB__CONTROL bg-primary px-[2.56rem] py-3 font-cardo text-lg font-bold uppercase text-white"
+					id="tab1Btn"
+					class="TAB__CONTROL w-full bg-primary px-[2.56rem] py-3 font-cardo text-lg font-bold uppercase text-white md:w-max"
 					>Product Description</button
 				>
 				<button
 					type="button"
-					class="TAB__CONTROL bg-slate-100 px-[2.56rem] py-3 font-cardo text-lg font-bold uppercase text-primary"
+					id="tab2Btn"
+					class="TAB__CONTROL w-full bg-slate-100 px-[2.56rem] py-3 font-cardo text-lg font-bold uppercase text-primary md:w-max"
 					>Additional Info</button
 				>
 			</div>
 
 			<!-- tabs contents -->
-			<div id="tab-1" class="TAB__CONTENT flex gap-5 text-primary md:gap-[5.75rem]">
+			<!-- @ add additional tab content in sync order with tab controls -->
+
+			<div
+				id="tab1"
+				class="TAB__CONTENT flex flex-col gap-5 text-primary md:flex-row md:gap-[5.75rem]"
+			>
 				<div class="flex flex-1 flex-col gap-2 md:gap-4">
 					<Heading variant="h5">Do you offer discounts for education?</Heading>
 					<p>
@@ -127,11 +136,60 @@ import Icon from 'astro-icon'
 					</p>
 				</div>
 			</div>
+			<div
+				id="tab2"
+				class="TAB__CONTENT hidden flex-col gap-5 text-primary md:flex-row md:gap-[5.75rem]"
+			>
+				<div class="flex flex-1 flex-col gap-2 md:gap-4">
+					<Heading variant="h5">Do you offer discounts for education?</Heading>
+					<p>
+						There are many variations of passages of Lorem Ipsum available, but the majority have
+						suffered alteration in some form, bypassed injected humour, or randomised words which
+						don't look even slightly believable.
+					</p>
+				</div>
+				<div class="flex flex-1 flex-col gap-2 md:gap-4">
+					<Heading variant="h5">Is this book for me? Is this book for me?</Heading>
+					<p>
+						There are many variations of passages of Lorem Ipsum available, but the majority have
+						suffered alteration in some form, bypassed injected humour, or randomised words which
+						don't look even slightly believable. There are many variations of passages of Lorem
+						Ipsum available, but the majority have suffered alteration in some form, bypassed
+						injected humour, or randomised words which don't look even slightly believable.
+					</p>
+				</div>
+			</div>
 		</div>
 	</section>
 
-	<script type="module">
-		// const tabControls = document.querySelectorAll('.TAB__CONTROL')
-		// const tabContents = document.querySelectorAll('.TAB__CONTENT')
+	<script>
+		// @ TABS
+		// @@ script for the tab function
+		const controls: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.TAB__CONTROL')
+		const tabs: NodeListOf<HTMLDivElement> = document.querySelectorAll('.TAB__CONTENT')
+
+		// 1. BY DEFAULT FIRST CONTROL AND TAB CONTENT WILL BE ACTIVE
+		// 2. THEN LISTEN TO CLICK ON THE CONTROLS TO SHOW RELEVANT CONTENT
+		controls.forEach((control: HTMLButtonElement, i: number) => {
+			control.addEventListener('click', function () {
+				// by defalt first control will be highlighted only
+				controls.forEach((control) => {
+					control.style.background = '#E8ECF2'
+					control.style.color = '#1B3764'
+				})
+
+				// now, on click, highlight currently active control
+				control.style.background = '#1B3764'
+				control.style.color = '#FFFFFF'
+
+				// hide other tabs content
+				tabs.forEach((tab) => {
+					tab.style.display = 'none'
+				})
+
+				// show currently active tab content
+				tabs[i].style.display = 'flex'
+			})
+		})
 	</script>
 </MainLayout>
