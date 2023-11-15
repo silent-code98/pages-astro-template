@@ -1,13 +1,79 @@
 ---
-import Banner from '../components/Banner.astro'
 import MainLayout from '../layouts/MainLayout.astro'
+import Banner from '../components/Banner.astro'
+import Heading from '../components/Heading.astro'
+import Hr from '../components/Hr.astro'
+import Icon from 'astro-icon'
 ---
 
 <MainLayout title="Contact | Pages">
-	<!-- banner -->
-	<Banner title="Contact Me" />
+	<!-- page banner -->
+	<Banner
+		title="Contact Us"
+		desc="There are many variations of passages of Lorem Ipsum available,  have suffered alteration in some form."
+	/>
 
-	<section></section>
+	<!-- form -->
+	<section id="contact-form" class="text-primary">
+		<div
+			class="container flex items-center gap-5 px-5 py-10 md:gap-10 md:py-[6.94rem] lg:gap-[6.62rem]"
+		>
+			<!-- left col - keep in touch -->
+			<div class="flex flex-1 flex-col">
+				<Heading>Keep in Touch</Heading>
+				<Hr />
+				<p class="text-[1.1875rem]">
+					There are many variations of passages of Lorem Ipsum available, but the majority have
+					suffered alteration in some form, by injected humour, or randomised words which don't look
+					even slightly believable.
+				</p>
 
-	<!-- main -->
+				<!-- contact info -->
+				<div class="mt-5 flex flex-col gap-3 md:mt-8 md:gap-5 lg:mt-10">
+					<!-- info item - visit us -->
+					<div class="flex gap-4 md:gap-[1.69rem]">
+						<i class="flex h-16 w-16 items-center justify-center bg-primary">
+							<Icon name="tabler:home" class="h-8 w-8 text-secondary" />
+						</i>
+
+						<div class="flex flex-col gap-1">
+							<Heading variant="h5">Visit Us :</Heading>
+							<p># 09A, Downtown, San Dieago, USA.</p>
+						</div>
+					</div>
+					<!-- info item - mail us -->
+					<div class="flex gap-4 md:gap-[1.69rem]">
+						<i class="flex h-16 w-16 items-center justify-center bg-primary">
+							<Icon name="mdi:envelope-outline" class="h-8 w-8 text-secondary" />
+						</i>
+
+						<div class="flex flex-col gap-1">
+							<Heading variant="h5">Drop Us :</Heading>
+							<p class="transition hover:text-primary hover:underline">
+								<a href="mailto:support@pages.com">support@pages.com</a>
+							</p>
+						</div>
+					</div>
+					<!-- info item - call us -->
+					<div class="flex gap-4 md:gap-[1.69rem]">
+						<i class="flex h-16 w-16 items-center justify-center bg-primary">
+							<Icon name="mdi:telephone-in-talk-outline" class="h-8 w-8 text-secondary" />
+						</i>
+
+						<div class="flex flex-col gap-1">
+							<Heading variant="h5">Call Us :</Heading>
+							<p class="transition hover:text-primary hover:underline">
+								<a href="tel:1-800-123-9999">Call: 1-800-123-9999</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- right col - contact form -->
+			<div class="flex flex-1">
+				<form action="/">form</form>
+			</div>
+		</div>
+	</section>
 </MainLayout>
