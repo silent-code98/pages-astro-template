@@ -1,0 +1,49 @@
+---
+// components
+import Icon from 'astro-icon'
+
+// types and props
+interface Props {
+	icon: string
+	placeholder: string
+	inputType: 'text' | 'email' | 'password' | 'number'
+	isTextarea?: boolean
+	cols?: string
+	rows?: string
+}
+
+const {
+	icon,
+	placeholder,
+	inputType = 'text',
+	isTextarea,
+	cols = '30',
+	rows = '8',
+	...props
+} = Astro.props as Props
+---
+
+{
+	isTextarea ? (
+		<div class="flex flex-1 gap-3 border px-[1.31rem] py-4 transition focus-within:border-secondary hover:border-secondary focus-visible:border-secondary">
+			<Icon name={icon} class="h-6 w-6 text-secondary" />
+			<textarea
+				class="flex-1 focus-visible:border-none focus-visible:outline-none "
+				placeholder={placeholder}
+				cols={cols}
+				rows={rows}
+				{...props}
+			/>
+		</div>
+	) : (
+		<div class="flex flex-1 gap-3 border px-[1.31rem] py-4 transition focus-within:border-secondary hover:border-secondary focus-visible:border-secondary">
+			<Icon name={icon} class="h-6 w-6 text-secondary" />
+			<input
+				type={inputType}
+				placeholder={placeholder}
+				class="capitalize focus-visible:border-none focus-visible:outline-none"
+				{...props}
+			/>
+		</div>
+	)
+}

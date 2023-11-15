@@ -1,0 +1,30 @@
+---
+import FormInput from './FormInput.astro'
+---
+
+<form action="/" class="flex w-full flex-col gap-3 md:gap-4">
+	<div class="flex w-full flex-col gap-3 md:flex-row md:gap-4">
+		<FormInput inputType="text" placeholder="Name" icon="radix-icons:person" />
+
+		<FormInput inputType="email" placeholder="Email" icon="mdi:envelope-outline" />
+	</div>
+	<div class="flex">
+		<FormInput inputType="text" placeholder="Phone" icon="mdi:telephone-in-talk-outline" />
+	</div>
+	<div class="flex">
+		<FormInput isTextarea inputType="text" placeholder="Message" icon="jam:write-f" />
+	</div>
+
+	<div class="flex items-start gap-3">
+		<input id="consent" type="checkbox" class="h-5 w-5 cursor-pointer" />
+		<label for="consent" class="-mt-1 cursor-pointer text-lg leading-snug text-gray-400"
+			>Keep me up to date with news and offers from time to time by email</label
+		>
+	</div>
+
+	<button
+		type="submit"
+		class="flex-1 border border-secondary bg-secondary px-5 py-[1.31rem] font-cardo text-lg font-bold text-primary transition hover:bg-transparent"
+		>Send Message</button
+	>
+</form>

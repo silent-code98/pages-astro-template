@@ -4,6 +4,7 @@ import Banner from '../components/Banner.astro'
 import Heading from '../components/Heading.astro'
 import Hr from '../components/Hr.astro'
 import Icon from 'astro-icon'
+import ContactForm from '../components/ContactForm.astro'
 ---
 
 <MainLayout title="Contact | Pages">
@@ -15,9 +16,7 @@ import Icon from 'astro-icon'
 
 	<!-- form -->
 	<section id="contact-form" class="text-primary">
-		<div
-			class="container flex items-center gap-5 px-5 py-10 md:gap-10 md:py-[6.94rem] lg:gap-[6.62rem]"
-		>
+		<div class="container flex gap-5 px-5 py-10 md:gap-10 md:py-[6.94rem] lg:gap-[6.62rem]">
 			<!-- left col - keep in touch -->
 			<div class="flex flex-1 flex-col">
 				<Heading>Keep in Touch</Heading>
@@ -72,7 +71,7 @@ import Icon from 'astro-icon'
 
 			<!-- right col - contact form -->
 			<div class="flex flex-1">
-				<form action="/">form</form>
+				<ContactForm />
 			</div>
 		</div>
 	</section>
